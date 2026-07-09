@@ -1,0 +1,635 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EasyStore 對決 Shopify：VETO 二選一決策報告</title></head><body><style>
+  :root{
+    --bg:#f6f7f9; --surface:#ffffff; --surface-2:#f0f3f6; --ink:#1a1d21; --ink-soft:#59626d;
+    --line:#e3e7ec; --accent:#0f5aa8; --accent-soft:#e7f0fb; --good:#147a52; --good-soft:#e4f4ec;
+    --warn:#b7791f; --warn-soft:#fbf1dd; --danger:#b3402f; --danger-soft:#fbe7e3; --shadow:0 1px 3px rgba(20,30,45,.06),0 6px 20px rgba(20,30,45,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#14171a; --surface:#1c2126; --surface-2:#232a30; --ink:#e9edf1; --ink-soft:#9aa4af;
+      --line:#2d353c; --accent:#4aa3ff; --accent-soft:#16324e; --good:#4cc38a; --good-soft:#123528;
+      --warn:#e0b25a; --warn-soft:#3a2f16; --danger:#f08c7a; --danger-soft:#3a1f19; --shadow:0 1px 3px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f6f7f9; --surface:#ffffff; --surface-2:#f0f3f6; --ink:#1a1d21; --ink-soft:#59626d;
+    --line:#e3e7ec; --accent:#0f5aa8; --accent-soft:#e7f0fb; --good:#147a52; --good-soft:#e4f4ec;
+    --warn:#b7791f; --warn-soft:#fbf1dd; --danger:#b3402f; --danger-soft:#fbe7e3; --shadow:0 1px 3px rgba(20,30,45,.06),0 6px 20px rgba(20,30,45,.05);
+  }
+  :root[data-theme="dark"]{
+    --bg:#14171a; --surface:#1c2126; --surface-2:#232a30; --ink:#e9edf1; --ink-soft:#9aa4af;
+    --line:#2d353c; --accent:#4aa3ff; --accent-soft:#16324e; --good:#4cc38a; --good-soft:#123528;
+    --warn:#e0b25a; --warn-soft:#3a2f16; --danger:#f08c7a; --danger-soft:#3a1f19; --shadow:0 1px 3px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1000px;margin:0 auto;padding:32px 20px 72px;}
+  header.masthead{border-bottom:3px solid var(--accent);padding-bottom:20px;margin-bottom:8px;}
+  .eyebrow{font-size:13px;letter-spacing:.14em;color:var(--accent);font-weight:700;text-transform:uppercase;}
+  h1{font-size:27px;line-height:1.3;margin:.35em 0 .15em;font-weight:800;letter-spacing:-.01em;}
+  .sub{color:var(--ink-soft);font-size:15px;margin:0;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:var(--ink-soft);}
+  .meta b{color:var(--ink);font-weight:600;}
+  h2{font-size:20px;margin:38px 0 14px;padding-top:6px;font-weight:800;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:10px;}
+  h2 .n{display:inline-flex;align-items:center;justify-content:center;min-width:27px;height:27px;padding:0 7px;
+    background:var(--accent);color:#fff;border-radius:8px;font-size:15px;font-weight:800;}
+  h3{font-size:16px;margin:22px 0 8px;font-weight:700;}
+  p{margin:.5em 0;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+    box-shadow:var(--shadow);margin:14px 0;}
+  .verdict{background:linear-gradient(180deg,var(--good-soft),var(--surface));border:1px solid var(--good);
+    border-left:6px solid var(--good);}
+  .verdict .lead{font-size:15px;color:var(--good);font-weight:800;letter-spacing:.02em;margin-bottom:2px;}
+  .verdict h3{font-size:19px;margin:.1em 0 .4em;}
+  .verdict.warnbox{background:linear-gradient(180deg,var(--warn-soft),var(--surface));border-color:var(--warn);border-left-color:var(--warn);}
+  .verdict.warnbox .lead{color:var(--warn);}
+  .verdict.blue{background:linear-gradient(180deg,var(--accent-soft),var(--surface));border-color:var(--accent);border-left-color:var(--accent);}
+  .verdict.blue .lead{color:var(--accent);}
+  .big{font-size:15px;}
+  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12.5px;font-weight:700;
+    background:var(--accent-soft);color:var(--accent);border:1px solid transparent;white-space:nowrap;}
+  .pill.good{background:var(--good-soft);color:var(--good);}
+  .pill.warn{background:var(--warn-soft);color:var(--warn);}
+  .pill.danger{background:var(--danger-soft);color:var(--danger);}
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;margin:14px 0;
+    box-shadow:var(--shadow);}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px;background:var(--surface);}
+  th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  thead th{background:var(--surface-2);font-weight:700;font-size:13px;color:var(--ink);position:sticky;top:0;
+    border-bottom:2px solid var(--line);}
+  tbody tr:last-child td{border-bottom:none;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  td.ctr,th.ctr{text-align:center;}
+  tr.rec td{background:var(--good-soft);}
+  tfoot td{background:var(--surface-2);font-weight:700;border-top:2px solid var(--accent);}
+  .rowhead{font-weight:700;}
+  .src{color:var(--accent);text-decoration:none;font-size:12px;border-bottom:1px dotted var(--accent);}
+  .src:hover{opacity:.75;}
+  sup.ref{font-size:11px;color:var(--accent);font-weight:700;margin-left:1px;}
+  .cy{color:var(--good);font-weight:700;}
+  .cn{color:var(--danger);font-weight:700;}
+  .cm{color:var(--warn);font-weight:700;}
+  ul,ol{margin:.5em 0;padding-left:1.35em;}
+  li{margin:.32em 0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:680px){.grid2{grid-template-columns:1fr;}}
+  .note{font-size:13px;color:var(--ink-soft);}
+  .callout{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;margin:12px 0;}
+  .callout.info{border-color:var(--accent);background:var(--accent-soft);}
+  .callout.danger{border-color:var(--danger);background:var(--danger-soft);}
+  .callout.good{border-color:var(--good);background:var(--good-soft);}
+  .refs{font-size:12.5px;color:var(--ink-soft);}
+  .refs li{margin:.3em 0;word-break:break-all;}
+  .refs a{color:var(--accent);text-decoration:none;}
+  /* 對決專用 */
+  .secband{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:6px 18px;margin:34px 0 4px;border-left:6px solid var(--accent);}
+  .secband h2{margin:12px 0;}
+  .wchip{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;font-size:12.5px;font-weight:800;white-space:nowrap;}
+  .wchip.es{background:var(--good-soft);color:var(--good);}
+  .wchip.sp{background:var(--accent-soft);color:var(--accent);}
+  .wchip.tie{background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--line);}
+  td.win-es{background:var(--good-soft);font-weight:800;color:var(--good);text-align:center;}
+  td.win-sp{background:var(--accent-soft);font-weight:800;color:var(--accent);text-align:center;}
+  td.win-tie{background:var(--surface-2);font-weight:700;color:var(--ink-soft);text-align:center;}
+  .gap-s{color:var(--danger);font-weight:800;} .gap-c{color:var(--warn);font-weight:800;} .gap-n{color:var(--ink-soft);font-weight:700;}
+  .round{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;box-shadow:var(--shadow);margin:12px 0;}
+  .round .rh{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:6px;}
+  .round .rh .rn{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 6px;background:var(--ink-soft);color:var(--surface);border-radius:7px;font-size:13px;font-weight:800;}
+  .round .rh .rt{font-size:16px;font-weight:800;}
+  .round .two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0;}
+  @media (max-width:680px){.round .two{grid-template-columns:1fr;}}
+  .side{border-radius:10px;padding:9px 12px;font-size:13.5px;border:1px solid var(--line);background:var(--surface-2);}
+  .side .nm{font-weight:800;font-size:12.5px;display:block;margin-bottom:2px;}
+  .side.es{border-left:4px solid var(--good);} .side.es .nm{color:var(--good);}
+  .side.sp{border-left:4px solid var(--accent);} .side.sp .nm{color:var(--accent);}
+  .impact{font-size:13.5px;margin:6px 0 0;padding:8px 12px;border-left:4px solid var(--ink-soft);background:var(--surface-2);border-radius:0 8px 8px 0;}
+  .scn{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0;}
+  .scn .tag{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.05em;}
+  .scn h3{margin:.15em 0 .5em;font-size:17px;}
+  .scn .anlg{font-size:13.5px;color:var(--ink-soft);margin:0 0 10px;}
+  .vshead{font-weight:800;font-size:13.5px;margin:0 0 6px;padding-bottom:5px;border-bottom:2px solid var(--line);}
+  .vshead.es{color:var(--good);border-color:var(--good);} .vshead.sp{color:var(--accent);border-color:var(--accent);}
+  .scnwin{font-size:13px;margin:10px 0 0;padding:9px 13px;border-radius:9px;background:var(--surface-2);border:1px solid var(--line);}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);}
+  .themebtn{position:fixed;right:14px;top:14px;z-index:9;background:var(--surface);border:1px solid var(--line);
+    color:var(--ink);border-radius:9px;padding:7px 11px;font-size:13px;cursor:pointer;box-shadow:var(--shadow);}
+  @media print{
+    :root{--bg:#fff;--surface:#fff;--surface-2:#f3f5f7;--shadow:none;}
+    body{font-size:11.5pt;}
+    .wrap{max-width:none;padding:0 6mm;}
+    .themebtn{display:none;}
+    .card,.tablewrap,.scn,.round{box-shadow:none;break-inside:avoid;}
+    .tablewrap{overflow-x:visible;}
+    table{min-width:0;width:100%;font-size:8.2pt;table-layout:fixed;}
+    th,td{padding:4px 5px;word-break:break-word;overflow-wrap:anywhere;white-space:normal;}
+    thead th{position:static;}
+    h2{break-after:avoid;}
+    tr,li{break-inside:avoid;}
+    a.src,sup.ref{color:#0f5aa8 !important;}
+  }
+</style>
+
+<button class="themebtn" onclick="var r=document.documentElement,c=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');r.setAttribute('data-theme',c==='dark'?'light':'dark');">切換主題</button>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">二選一決策文件 · EasyStore vs Shopify · 十回合對決＋七場景並排＋費用/風險對決 · 賈維斯（如菓）製</div>
+  <h1>EasyStore 對決 Shopify：<br>VETO 官網二選一，一張表定生死</h1>
+  <p class="sub">前幾份把四平台都拆完了，老闆的選擇已收斂到 <b>EasyStore</b> 與 <b>Shopify</b> 兩家。這一篇不重複盤點功能，只做一件事——<b>把這兩家擺上擂台，針對 VETO（工具包 B2B 經銷＋B2C 零售雙軌、要 AI 代管、200 品項要上架）打十個回合、走七個場景，每一項判出誰勝、差多少</b>。承接《EasyStore 場景分析》《Shopify 與 SHOPLINE 場景分析》《四平台費用評估》《ERP 建置評估 v2》四份查證報告，價格功能全部有來源、假設全部明標。<b>兩家公平判——不因前面推薦過 EasyStore 就放水，十回合照證據走。</b></p>
+  <div class="meta">
+    <span><b>查證日</b> 2026-07-09</span>
+    <span><b>幣別</b> 新台幣 NT$（未稅為主）</span>
+    <span><b>參考匯率</b> 1 USD≈NT$32（2026-07-08 臺銀）<sup class="ref">FX</sup></span>
+    <span><b>基準情境</b> 年營收 300 萬（600 萬列敏感度）· B2B 佔 40% 走匯款</span>
+    <span><b>新參數</b> 200 品項上架（含尺寸/款式變體）</span>
+  </div>
+</header>
+
+<div class="callout info" style="margin-top:16px"><b>先講清楚（本報告為公開文件）</b>：❶ 「年營收 300／600 萬」「B2B 佔 40%」「200 品項」皆為<b>試算與情境假設</b>，不代表 VETO 實際營收或客戶結構（品項數為老闆本次補充參數）。❷ 本報告只含<b>兩平台公開牌價與市場行情</b>，不含任何一方內部成本或利潤。❸ 部分細節（EasyStore 規模上限與 API 綁定方案、Shopify payment terms 的 API 完整度）官方頁查無，一律標「需確認」並以區間呈現，簽約前以業務書面／實測為準。</div>
+
+<!-- 1 對決總表 -->
+<h2><span class="n">1</span>對決總表：十回合勝負一覽＋一句結論</h2>
+<p class="note">信心與差距標記：<span class="gap-s">壓倒性</span>＝一家原生一家無／需外補；<span class="gap-c">明顯</span>＝都做得到但差一截；<span class="gap-n">接近</span>＝兩家實力相當。勝者欄綠＝EasyStore、藍＝Shopify、灰＝平手。</p>
+<div class="tablewrap">
+<table style="min-width:900px">
+  <thead>
+    <tr>
+      <th style="min-width:104px">回合</th>
+      <th style="min-width:210px">EasyStore 成長版＋CMT</th>
+      <th style="min-width:210px">Shopify Grow</th>
+      <th class="ctr" style="min-width:96px">🏆 勝者</th>
+      <th class="ctr" style="min-width:78px">差距</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="rowhead">① B2B 分級價</td>
+      <td><span class="cy">●原生</span> 批發官網多組價格表、暗盤價、量大折扣<sup class="ref">O批發</sup></td>
+      <td><span class="cy">●原生</span> 公司檔案＋分級型錄（非 Plus 限 3 本、經 Markets 指派）<sup class="ref">P-B2B</sup></td>
+      <td class="win-tie">平手</td>
+      <td class="ctr"><span class="gap-n">接近</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">② 專屬品項</td>
+      <td><span class="cy">●原生</span> 邀請制批發門戶、未受邀完全看不到<sup class="ref">O批發</sup></td>
+      <td><span class="cy">●原生</span> 型錄限定品項＋B2B 專屬結帳<sup class="ref">P-B2B</sup></td>
+      <td class="win-tie">平手</td>
+      <td class="ctr"><span class="gap-n">接近</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">③ 月結賒帳</td>
+      <td><span class="cn">○無原生</span> → 靠 CMT 進銷存記應收<sup class="ref">CMT</sup></td>
+      <td><span class="cy">●唯一原生</span> net terms（Net 7–90／到期自動標 Overdue／催款信）<sup class="ref">P月結</sup></td>
+      <td class="win-sp">🏆 Shopify</td>
+      <td class="ctr"><span class="gap-s">壓倒性</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">④ B2C 同站雙軌</td>
+      <td><span class="cy">●可</span> B2C 官網＋批發門戶同後台<sup class="ref">O批發</sup></td>
+      <td><span class="cy">●可</span> DTC＋B2B 同店（blended store）<sup class="ref">P-B2B</sup></td>
+      <td class="win-tie">平手</td>
+      <td class="ctr"><span class="gap-n">接近</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">⑤ AI 自動化 API</td>
+      <td><span class="cy">●免費</span> 商品/訂單/顧客 CRUD；<b>端點淺、無 B2B 物件</b>、限額黑箱<sup class="ref">O-API</sup></td>
+      <td><span class="cy">●最完整免費</span> Admin API 連 B2B 物件（Company/Catalog/PriceList）都能操作<sup class="ref">P-API</sup></td>
+      <td class="win-sp">🏆 Shopify</td>
+      <td class="ctr"><span class="gap-c">明顯</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">⑥ 台灣在地化</td>
+      <td><span class="cy">●原生齊</span> ~20 家金流／四大超商／發票 App／中文客服<sup class="ref">O-金流·O-物流</sup></td>
+      <td><span class="cn">○全靠疊 App</span> 無自營金流＋非官方金流多抽 1%＋蝦皮最弱＋英文<sup class="ref">P-tw金流·P費</sup></td>
+      <td class="win-es">🏆 EasyStore</td>
+      <td class="ctr"><span class="gap-s">壓倒性</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">⑦ 建置速度</td>
+      <td><span class="cy">低</span> 在地開箱、少拼裝、最快上線；200 品項<b>變體可 CSV 批量帶入</b>（官方），惟 API 批量規格較不透明（見場景⑧）<sup class="ref">ES-CSV</sup></td>
+      <td><span class="cn">高</span> 金流自申＋超取/發票各一 App＋英文文件，<b>建置期最長</b>（惟 200 品 API bulk 上架最順）<sup class="ref">P-tw超商·PR7</sup></td>
+      <td class="win-es">🏆 EasyStore</td>
+      <td class="ctr"><span class="gap-c">明顯</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">⑧ 三年費用<br><span class="note">（300 萬情境）</span></td>
+      <td><b>約 47.7 萬</b>（含 CMT、<b>0 抽成</b>）<sup class="ref">TCO</sup></td>
+      <td><b>約 34～44 萬</b>（帳面最低；區間＝配不配 CMT）<sup class="ref">TCO·P費</sup></td>
+      <td class="win-sp">🏆 Shopify<br><span class="note">（帳面）</span></td>
+      <td class="ctr"><span class="gap-n">接近</span><br><span class="note">含看不見成本後拉近</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">⑨ 維護負擔</td>
+      <td><span class="cm">中</span> 客服慢、要自己顧、CMT 一套要對帳；<b>但移動件少、無鎖定</b><sup class="ref">U1·L-capterra</sup></td>
+      <td><span class="cn">高</span> 多 App 各自更新收費、蝦皮靠海外小開發商、出事面對非官方<sup class="ref">P蝦皮</sup></td>
+      <td class="win-es">🏆 EasyStore</td>
+      <td class="ctr"><span class="gap-c">明顯</span></td>
+    </tr>
+    <tr>
+      <td class="rowhead">⑩ 未來擴展</td>
+      <td>東南亞跨境原生站台；<b>但台灣小眾、天花板黑箱、模板少</b><sup class="ref">O-跨境·U2</sup></td>
+      <td><span class="cy">全球最大生態</span>＋API 天花板最高＋跨境天生強<sup class="ref">P-API</sup></td>
+      <td class="win-sp">🏆 Shopify</td>
+      <td class="ctr"><span class="gap-c">明顯</span></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3">比分</td><td class="ctr" colspan="2"><b>Shopify 4　·　EasyStore 3　·　平手 3</b></td></tr>
+  </tfoot>
+</table>
+</div>
+
+<div class="card verdict" style="margin-top:6px">
+  <div class="lead">★ 一句結論</div>
+  <p class="big" style="margin-top:2px;margin-bottom:0"><b>十回合 Shopify 帳面 4：3 小勝（3 回合平手），但這是一場「贏回合數 ≠ 贏訂單」的對決，最終建議仍是 EasyStore 成長版＋CMT（三年約 47.7 萬）。</b>原因是兩家贏的回合「份量不同」：Shopify 贏的四回合（月結原生、API 最深、帳面較低、生態最大）多是<b>「天花板」優勢</b>——月結可用平價 CMT（33,600/年）補起、API 免費版已夠 VETO 日常抓單改庫存；而 EasyStore 贏的三回合（台灣在地化、建置速度、維護負擔）是<b>「天天有感、對有限人力最友善」的地面優勢</b>，加上 0 抽成讓生意越大越省。對「<b>B2B 為重、精打細算、在地為主、要 AI 代管但可接受人工＋CMT</b>」的 VETO，EasyStore 是最佳平衡。<b>只有當「月結要平台原生不想再接進銷存／要跨境國際站／要 AI 全自動管經銷」三者之一成立、且肯吞台灣落地的疊 App 與英文文件，才翻選 Shopify</b>（翻轉條件見 §6）。</p>
+</div>
+<div class="callout info"><b>怎麼讀這張計分表</b>：回合數只是「能力盤點」，不是「決策公式」。真正的決策要拿每個回合去<b>乘上「對 VETO 有多重要」與「輸的那家補起來多難」</b>兩個權重——月結雖輸得壓倒性，但 CMT 一套 33,600/年就補平；在地化雖只是一回合，卻是<b>每天收款、每張發票、每次出貨</b>都在省力。<b>也公平反過來提醒</b>：EasyStore 贏的⑥⑦⑨三回合其實<b>同根</b>——都源於「台灣原生、免疊 App」，不是三個各自獨立的優勢；但正因是「同一個根長出三種日常省力」，對有限人力的 VETO 權重才格外大。§2 逐回合拆、§3 用七場景驗、§4 把費用兩條線畫清楚、§6 給明確選邊與翻轉條件。</div>
+
+<!-- 2 十回合逐一拆解 -->
+<h2><span class="n">2</span>十回合逐一拆解（兩家怎麼做 → 差在哪 → 對 VETO 的影響）</h2>
+
+<div class="round">
+  <div class="rh"><span class="rn">1</span><span class="rt">B2B 分級價</span><span class="wchip tie">平手</span><span class="gap-n">接近</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>一個<b>邀請制的獨立批發官網</b>，每個經銷商綁自己的「價格表」（暗盤價、彼此看不到），還能設「量越大、價越低」的級距。是原生功能、直觀。<sup class="ref">O批發</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span>把經銷商建成正式的<b>「公司」實體</b>（公司→營業點→聯絡人三層），指派「金級/銀級型錄」；型錄可「整本相對零售價打 X 折」。非 Plus 全店<b>最多 3 本型錄</b>、且要經「市場」間接指派。<sup class="ref">P-B2B·P型錄</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>兩家都原生、都撐得起 VETO 的 2–3 級經銷價，判平手。細微差別是「性格」——EasyStore 是<b>專門的批發倉、設定直觀</b>；Shopify 是<b>企業級公司實體、可被 API 驅動改價</b>，但要理解公司/市場/型錄的抽象、且 3 本型錄剛好用滿（將來要「一家一價」就得跳天價 Plus）。VETO 分級單純，這一分兩家都拿得到。</p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">2</span><span class="rt">經銷商專屬品項（隱藏商品）</span><span class="wchip tie">平手</span><span class="gap-n">接近</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>批發官網是<b>密碼保護、邀請制的獨立入口</b>——整箱裝、經銷專案品放進去，散客根本進不來、看不到。權限乾淨。<sup class="ref">O批發</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span><b>型錄限定可見品項＋B2B 專屬結帳</b>——某型錄才看得到的商品，跟著公司走。一樣是原生權限控制。<sup class="ref">P-B2B</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>兩家都是「原生、靠權限」把專屬品項藏好，判平手。這一項特別值得點名的是——同題目換成 SHOPLINE 就得靠「隱藏賣場」手工拼、還被官方警告「別放進選單否則全被看光」；<b>EasyStore 與 Shopify 都沒有這個拼裝風險</b>，是它們共同勝過本土拼裝派的地方。</p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">3</span><span class="rt">月結賒帳（先出貨後付款）</span><span class="wchip sp">🏆 Shopify</span><span class="gap-s">壓倒性</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>能讓經銷商「先拿貨、不付錢」，<b>但誰欠多少、月底該收多少、帳齡幾天——這本應收帳它不會記</b>。要外接一套雲端進銷存（CMT）記應收、對帳、開發票。<sup class="ref">CMT</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span><b>三家唯一平台自己記帳</b>：Net 7/15/30/45/60/90 天，掛帳公司下單免輸卡號，訂單自動標到期日、逾期自動標 Overdue，可設 5 封自動催款信，後台篩「未付款」就是現成應收清單。<sup class="ref">P月結</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>這是 Shopify 對 VETO <b>最值錢的一分，判壓倒性勝</b>——它把「月結」這件事收進平台，少接一層系統。但要認清兩個邊界：❶ 它<b>不會自動鎖單</b>（欠超額不會擋，仍要人工 SOP）；❷ 台灣習慣的「月底彙開一張發票」與庫存成本，仍在平台外，要靠發票 App 或會計流程。所以 Shopify 贏的是「應收記帳」，不是「整套帳房」。EasyStore 這邊用 CMT 補，缺口明確、可控、且一年 33,600 就補起（§4）。</p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">4</span><span class="rt">B2C 同站雙軌</span><span class="wchip tie">平手</span><span class="gap-n">接近</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>B2C 官網＋B2B 批發官網<b>雙前台、同一後台商品庫</b>，散客走零售、經銷帳號走批發，互不干擾。<sup class="ref">O批發</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span>DTC＋B2B <b>同一家店（blended store）</b>，未登入走零售、登入的公司帳號走批發價。<sup class="ref">P-B2B</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>「不必養兩個網站」兩家都做得到，判平手。差別只在架構風味——EasyStore 是「零售站＋批發站」兩個前台入口、清楚分流；Shopify 是「同一個店按身分切換」。對 VETO 的日常沒有實質差異，怎麼順手怎麼選。</p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">5</span><span class="rt">AI 自動化 API（賈維斯代管）</span><span class="wchip sp">🏆 Shopify</span><span class="gap-c">明顯</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>Open API <b>免費</b>、涵蓋商品/訂單/顧客的增刪改查（OAuth）。賈維斯能：每日彙整新訂單、低庫存提醒、批量上架改價、撈報表做日報。<b>但端點淺（無 B2B 物件）、每分鐘呼叫上限官方沒寫死、綁哪些方案待證實</b>。<sup class="ref">O-API</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span>Admin GraphQL API 覆蓋全部，<b>連 B2B 物件（Company/CompanyLocation/Catalog/PriceList）都能操作</b>——AI 可以自動「開經銷商帳號、掛型錄、動態改價」。全付費方案都能用、文件與範例生態全球最成熟。<sup class="ref">P-API</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>兩家 API 都免費，判 Shopify 明顯勝——差在<b>深度與天花板</b>。VETO 的<b>日常自動化</b>（抓單、改庫存、上架、日報）EasyStore 免費版就夠；但要「<b>AI 全自動管經銷</b>」（自動開帳號、依規則動態改分級價），只有 Shopify 的 B2B 物件 API 做得到全套。一句話：<b>要 AI 顧日常，兩家都行；要 AI 當經銷業務助理，Shopify 才夠深。</b></p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">6</span><span class="rt">台灣在地化（金流/超商/發票/客服）</span><span class="wchip es">🏆 EasyStore</span><span class="gap-s">壓倒性</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span><b>原生齊全</b>：約 20 家台灣金流、四大超商取貨、電子發票 App、全中文介面＋中文客服。基礎金流物流整合<b>多含在方案內、不另收模組費</b>。缺點只是「沒有自營金流、要自己接綠界」。<sup class="ref">O-金流·O-物流·O-無金流</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span><b>全靠疊 App</b>：Shopify Payments 不支援台灣、綠界官方 App 掛牌 4 年 0 評價（多走手動串接）、藍新查無 App、超取＋發票各一個第三方 App、蝦皮無官方通路；用非官方金流<b>還被 Shopify 再抽一層交易費</b>。<sup class="ref">P-tw金流·P費·P蝦皮</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>這是 EasyStore <b>最壓倒性的一分</b>，而且是「<b>天天有感</b>」的分——每一筆收款、每一張發票、每一次超商出貨、每一次打客服，都在用到。Shopify 不是做不到（App 都有解），是「要先組、要多付、出事查英文」。對一個台灣代理商的日常，這一項的權重遠高於它在計分表上只佔「一回合」。</p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">7</span><span class="rt">建置速度（開店到能營業）</span><span class="wchip es">🏆 EasyStore</span><span class="gap-c">明顯</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>台灣在地開箱即用、少拼裝，整體<b>建置期最短</b>。200 品項的<b>變體可用 CSV「同 Handle 多列」一次帶入</b>（官方，圖片外部 URL、每商品限 3 張）；較弱的是 <b>API 批量規格官方不透明、要先實測</b>（見場景⑧）。<sup class="ref">ES-CSV·ES-APIlim</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span>店面漂亮自由，<b>但台灣落地要一段組裝期</b>：金流跟綠界申請＋串接、超取一個 App、發票一個 App、B2B 型錄文件多英文、學習曲線在前——<b>建置期三家最長</b>。好處是 200 品項的<b>變體 CSV 原生批量＋官方 bulk API（可繞過速率）</b>，純批量上架這段反而最順。<sup class="ref">P-tw超商·PR7·P-bulk</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>判 EasyStore 明顯勝——因為「台灣落地」是<b>每個 VETO 都要過、且更大的時間坑</b>，EasyStore 在這關快很多。要誠實補一句：<b>單論 200 品項批量上架，兩家的 CSV 都能帶變體（官方文件確認）</b>，Shopify 的優勢在「官方 bulk API 可繞過速率、圖片自動託管」，EasyStore 則是 API 批量規格官方不透明、要先實測——但這只是建置期的一小段，走賈維斯 API 兩家都能壓縮（場景⑧細算），撼動不了 EasyStore 在台灣落地的整體領先。</p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">8</span><span class="rt">三年費用（300 萬情境）</span><span class="wchip sp">🏆 Shopify（帳面）</span><span class="gap-n">接近</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>三年 <b>約 47.7 萬</b>（成長版 64,788/年＋CMT 33,600/年＋金流，<b>0 平台抽成</b>）。營收翻倍時只有金流跟著漲、平台費不動。<sup class="ref">TCO</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span>三年 <b>約 34～44 萬</b>——方案月費三家最低（Grow ≈1.9 萬/年）。<b>34 萬＝用平台原生月結、不配 CMT；44 萬＝要完整進銷存、配 CMT</b>。但每筆 B2C 刷卡<b>多抽 1% 交易費</b>＋台灣 App 疊層。<sup class="ref">P費·TCO</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>純看帳面 Shopify 較低，判帳面勝；但差距被三件事拉近到「接近」：❶ 若 VETO 要完整進銷存（月底彙開發票／庫存成本），Shopify 也得配 CMT＝44 萬，跟 47.7 萬<b>只差約 4 萬（三年）</b>；❷ Shopify 的 1% 交易費吃全部 B2C 刷卡、隨營收線性上漲，EasyStore 0 抽成；❸ 到 600 萬情境，EasyStore 62.6 萬 vs Shopify 54–64 萬<b>區間已重疊</b>。一句話：<b>帳面選 Shopify，實際擁有成本兩家伯仲、生意越做大越偏 EasyStore</b>（兩條線見 §4）。</p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">9</span><span class="rt">維護負擔（日常＋改版）</span><span class="wchip es">🏆 EasyStore</span><span class="gap-c">明顯</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>負擔<b>中等</b>：客服只能寫信、規模上限黑箱、要自己顧，CMT 一套要對帳。但<b>移動件少（平台＋CMT 兩套）、無合約鎖定、資料可匯出</b>。<sup class="ref">U1·L-capterra</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span>負擔<b>最高</b>：金流/超取/發票/蝦皮是好幾個 App，<b>各自更新、各自收費、各自可能出包</b>；蝦皮靠海外小開發商，出事你面對的不是 Shopify 官方。移動件最多。<sup class="ref">P蝦皮</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>判 EasyStore 明顯勝——「維護負擔」看的是<b>要顧幾個會動的零件</b>，Shopify 疊了最多 App＝最多要顧的東西，把它省下的方案費用人力補回去。對 VETO 有限的技術人力，EasyStore 的「兩套系統、無鎖定」更友善。（注意：EasyStore 客服慢是真的缺點，但那歸類到 §5 風險，不是日常維護的工作量。）</p>
+</div>
+
+<div class="round">
+  <div class="rh"><span class="rn">10</span><span class="rt">未來擴展（做大之後）</span><span class="wchip sp">🏆 Shopify</span><span class="gap-c">明顯</span></div>
+  <div class="two">
+    <div class="side es"><span class="nm">EasyStore</span>強在<b>東南亞跨境</b>（馬新港菲泰原生站台），VETO 若南向有現成基礎。但<b>台灣小眾、生態薄、規模天花板（SKU/流量/會員數）官方黑箱、模板少</b>，做大後功能天花板來得比大平台早。<sup class="ref">O-跨境·U2</sup></div>
+    <div class="side sp"><span class="nm">Shopify</span><b>全球最大生態</b>：主題/App/開發者資源無敵、API 天花板最高、跨境天生強、上面還有 Plus 這條企業級路可走。想長成大店，延展性最好。<sup class="ref">P-API</sup></div>
+  </div>
+  <p class="impact"><b>對 VETO：</b>判 Shopify 明顯勝——論「做大」的頂，Shopify 的生態與 API 深度沒有對手。但這一分對 VETO 的實際權重<b>取決於野心</b>：若目標是「把台灣代理做穩、順帶南向」，EasyStore 的跨境已夠用；若要「長成國際 DTC 品牌」，Shopify 的天花板才用得上。這正是 §6 翻轉條件之一。</p>
+</div>
+
+<!-- 3 七場景並排 -->
+<h2><span class="n">3</span>七場景並排走查：同一件事，兩家誰順誰卡</h2>
+<p class="note">功能表看再多，不如把 VETO 每天要做的事跑一遍。以下把《EasyStore 場景分析》《Shopify 場景分析》的<b>同一把尺</b>七場景左右並排（EasyStore 綠、Shopify 藍），外加老闆本次補的<b>場景⑧「200 品項批量上架」</b>。每個場景末給「這一場誰順」。</p>
+
+<div class="scn">
+  <div class="tag">場景 ①　B2C 零售</div>
+  <h3>消費者買一個工具袋：從下單到收貨</h3>
+  <p class="anlg">師傅上官網挑腰包、付錢、超商取貨、拿發票。最基本的一條龍。</p>
+  <div class="grid2">
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px">金流（信用卡/ATM/超商/貨到付款/LINE Pay）、四大超商、電子發票齊；棄單 24 小時自動喚回。<b>坑在「開店初期設定」</b>：金流要先接綠界、發票先裝 App、超商有重量上限（7-11 到 10kg）——設好就一路通。<sup class="ref">O-金流·O-超商</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px">店面三家最漂亮自由，繁中＋TWD 可設。<b>但要先「組」：</b>金流跟綠界申請串接、超取一個 App、發票一個 App；而且每筆 B2C <b>綠界 2.75%＋Shopify 再抽 1%</b>＝雙層抽；超商取貨付款體驗不如本土原生。<sup class="ref">EC·P費·PR7</sup></p></div>
+  </div>
+  <p class="scnwin"><b>這一場：EasyStore 順</b>。兩家功能都齊，但 EasyStore 在地原生、少一層交易費、超取更順；Shopify 漂亮自由但要組裝＋每單被雙層抽。</p>
+</div>
+
+<div class="scn">
+  <div class="tag">場景 ②　B2B 經銷商月結（核心）</div>
+  <h3>五金行老闆登入看經銷價、下單、月底結——Shopify 原生記帳 vs EasyStore＋CMT 分工</h3>
+  <p class="anlg">這是 VETO 的命脈場景，也是兩家差最多的一段。同一件事，兩種完全不同的走法。</p>
+  <div class="grid2">
+    <div><div class="vshead es">EasyStore＋CMT（前台後台分工）</div>
+      <p style="margin:0 0 6px;font-size:13px">發邀請開帳號 → 經銷商登入看專屬價 → 下單選「月結匯款」 → <b>你審單看額度（人工看 CMT 應收餘額）</b> → 出貨＋訂單拋轉 CMT 記應收 → 月底 CMT 彙總對帳、開發票 → 收款沖帳。<sup class="ref">O批發·CMT</sup></p>
+      <p style="margin:0;font-size:13px"><b>特色：</b>EasyStore 負責「賣」、CMT 負責「記帳」，職責清楚；<b>好處是換前台不用換帳房</b>（CMT 獨立可攜），壞處是多一套系統要對、月結那本帳不在購物網站裡。</p>
+    </div>
+    <div><div class="vshead sp">Shopify（平台原生記帳）</div>
+      <p style="margin:0 0 6px;font-size:13px">建公司檔案＋營業點 → 指派型錄（經銷價）＋設 Net 30 → 經銷商登入下單<b>免輸卡號</b> → 出貨、訂單自動掛「未付款・N 天後到期」 → 到期前自動催款 → 後台篩「未付款/Overdue」＝<b>現成應收清單</b>。<sup class="ref">P-B2B·P月結</sup></p>
+      <p style="margin:0;font-size:13px"><b>特色：</b>月結記在平台內、<b>少接一層進銷存</b>；但發票彙開與庫存成本仍在平台外（仍可能要 CMT）；型錄非 Plus 限 3 本。</p>
+    </div>
+  </div>
+  <div class="callout"><b>兩家共同的坑（別以為 Shopify 原生就沒有）：</b>兩家<b>都沒有「欠超額自動鎖單」</b>——信用額度控管一律人工 SOP，這是整個賽道通則（只有 Woo 外掛與 Shopify Plus 例外）。差別只是：EasyStore 你去 CMT 看餘額，Shopify 你在後台看 Overdue 清單。</div>
+  <p class="scnwin"><b>這一場：Shopify 順（壓倒性）</b>。「應收記帳」Shopify 收進平台、對帳最輕鬆；EasyStore 要 CMT 分工。<b>但這不等於 EasyStore 做不到</b>——它是「用一套 33,600/年 的 CMT 把缺口補起、換得前台後台各自可換」，缺口明確可控。這正是計分表上 Shopify 贏「月結」卻沒贏「整場決策」的縮影。</p>
+</div>
+
+<div class="scn">
+  <div class="tag">場景 ③</div>
+  <h3>上架新品（少量）：一款工具袋建進去</h3>
+  <p class="anlg">單款、少量，手動建。（大量 200 款見場景⑧。）</p>
+  <div class="grid2">
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px">後台清爽、「一個人就能操作」；單款建品含變體、上圖直覺。每個商品<b>最多 3 種規格類別</b>（型號＋顏色＋尺寸剛好用滿）。<sup class="ref">O-變體·U4</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px">單款建品效率也高；B2B 價可在型錄「整本打折」再逐項覆蓋、不用逐商品手填。<b>但介面進到型錄/Markets/B2B 常只有英文</b>，學習曲線在前。<sup class="ref">P型錄·PR3</sup></p></div>
+  </div>
+  <p class="scnwin"><b>這一場：接近</b>。少量手動兩家都順；Shopify 的型錄打折在「同時設經銷價」時省一點工，EasyStore 勝在中文直觀好上手。</p>
+</div>
+
+<div class="scn">
+  <div class="tag">場景 ④</div>
+  <h3>檔期促銷：父親節（88 節）做一波 DM 導流</h3>
+  <p class="anlg">設優惠、發 DM、把猶豫的撿回來。</p>
+  <div class="grid2">
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px">限時優惠/滿額贈/折扣碼/加價購都有，基本檔期夠打。<b>但群發只有「打字＋套範本」，沒有拉圖排版的視覺化 EDM</b>，要漂亮 DM 得另裝 Mailchimp。<sup class="ref">O-群發</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px">原生折扣＋Shopify Email（<b>拖拉式美編 DM，比 EasyStore 強</b>）＋全球最大 App 生態。<b>但「台味」促銷是弱項</b>：LINE 深整合、直播＋1、超商檔期玩法都要疊英文 App。</p></div>
+  </div>
+  <p class="scnwin"><b>這一場：Shopify 略順</b>（DM 美編＋App 生態較強）；但兩家的「台灣 LINE/直播打法」都不如 SHOPLINE。對 B2B 為重的 VETO，這局權重不高——先想清楚行銷炮火用得到幾成。</p>
+</div>
+
+<div class="scn">
+  <div class="tag">場景 ⑤</div>
+  <h3>蝦皮跟官網一起賣：庫存同步別賣超</h3>
+  <p class="anlg">同一批貨官網賣、蝦皮也賣，最怕庫存對不上、同一件賣兩次。</p>
+  <div class="grid2">
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px"><b>官方雙向串接</b>：蝦皮訂單自動匯入後台、自動扣庫存。坑是同步有延遲、「時常出錯」，規矩＝所有編輯回 EasyStore 改、蝦皮端別動，每天抽查熱賣品。<sup class="ref">O-多通路·U7</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px"><b>查無官方蝦皮通路</b>（舊 Shopee App 已下架），全押小型第三方 App（評價少、品質參差、1.9 星的也在架），出事面對海外小開發商。<sup class="ref">P蝦皮</sup></p></div>
+  </div>
+  <p class="scnwin"><b>這一場：EasyStore 明顯順</b>。官方雙向串接（雖有同步延遲）勝過 Shopify「無官方、全靠第三方」。<b>若蝦皮是 VETO 的重要通路，這項要加重計分</b>。</p>
+</div>
+
+<div class="scn">
+  <div class="tag">場景 ⑥</div>
+  <h3>月底對帳：B2C 的金流帳＋B2B 的應收帳</h3>
+  <p class="anlg">月底把錢對清楚：散客刷卡入帳多少、經銷商欠多少。</p>
+  <div class="grid2">
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px">對帳橫跨三方：EasyStore 出銷售報表、散客的錢在<b>金流商後台</b>、經銷應收在 <b>CMT</b>。坑：訂單「不能依日期篩選匯出」（用戶抱怨）、後台數據陽春。<sup class="ref">U7</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px"><b>B2B 半邊三家最輕鬆</b>：應收就在平台裡（篩未付款/Overdue）。<b>但 B2C 半邊多一層</b>：綠界後台＋Shopify 交易費帳單＋發票 App，還多核一筆「Shopify 抽走多少」。<sup class="ref">P月結·P費</sup></p></div>
+  </div>
+  <p class="scnwin"><b>這一場：分兩半</b>。<b>B2B 應收對帳 Shopify 順</b>（在平台內）；<b>B2C 金流對帳兩家都要三邊兜</b>，Shopify 還多核一筆抽成。整體「都不是會計工具」，Shopify 在最痛的 B2B 那半邊贏一點。</p>
+</div>
+
+<div class="scn">
+  <div class="tag">場景 ⑦　AI 自動化</div>
+  <h3>讓賈維斯代辦日常：兩家 API 我實際能替老闆做到哪</h3>
+  <p class="anlg">老闆想讓 AI 顧後台——自動抓訂單、缺貨提醒、批量改價、撈日報。這靠平台開不開「後門鑰匙」（API）。</p>
+  <div class="grid2">
+    <div><div class="vshead es">EasyStore（免費，夠日常）</div><p style="margin:0;font-size:13.5px">免費 Open API，<b>賈維斯能做：</b>每日彙整新訂單、低庫存提醒、批量上架/改價、撈銷售數字做日報。<b>做不到/要繞：</b>無 B2B 物件端點（不能純 API 開經銷帳號/改分級價那麼直接）；CMT 沒開放 API，B2B 對帳自動化要靠「AI 操作後台畫面」補；限額黑箱要試跑。<sup class="ref">O-API</sup></p></div>
+    <div><div class="vshead sp">Shopify（最完整，天花板最高）</div><p style="margin:0;font-size:13.5px">Admin GraphQL 全端點，<b>賈維斯能做：</b>上面全部＋<b>自動開經銷商公司帳號、掛型錄、依規則動態改分級價</b>（B2B 物件原生可操作）。<b>要實測：</b>payment terms（月結條款）能否完整經 API 操作官方未明講；限額依方案分級、大批量要排隊。<sup class="ref">P-API</sup></p></div>
+  </div>
+  <p class="scnwin"><b>這一場：Shopify 明顯順</b>。<b>要 AI 顧「日常」，兩家都行、EasyStore 還免費；要 AI 當「經銷業務助理」（自動開帳號、動態改價），只有 Shopify 夠深。</b>VETO 現階段的 AI 需求多落在日常那格——這也是為什麼 EasyStore 的「淺但免費」對 VETO 夠用。</p>
+</div>
+
+<div class="scn" style="border:2px solid var(--accent)">
+  <div class="tag">場景 ⑧　200 品項批量上架（老闆本次補充參數）</div>
+  <h3>把 200 種工具包（含尺寸/款式變體）一次建上去：三種做法工時對決</h3>
+  <p class="anlg">VETO 有 <b>200 個品項</b>要上架，且工具包多有尺寸/款式變體。v2 曾把「首批上架」列為開站的<b>關鍵路徑（估 2–4 週）</b>——用 200 品項具體化，兩家差在哪、賈維斯能幫多少。</p>
+  <div class="grid2">
+    <div><div class="vshead es">EasyStore</div>
+      <ul style="margin:0;font-size:13px;padding-left:1.15em">
+        <li><b>CSV/Excel 匯入</b>：官方支援<b>變體隨匯入檔一次帶入</b>——同一 Handle 多列＋Option 1/2/3（尺寸/款式），不用手動逐一設；圖片用外部 URL（Image1/2/3，<b>每商品最多 3 張</b>）。<sup class="ref">ES-CSV</sup>（註：有舊用戶反映實務變體要手動，以官方文件為準、簽約前實測<sup class="ref">U7</sup>）</li>
+        <li><b>API 批量建品</b>：Open API 免費，<b>但建含變體/批次端點的官方參考頁目前查無（500/404、完整參考只在 Postman）、呼叫上限官方也無具體數字（只有回應表頭）</b>——批量規格不透明，需用開發者帳號實測。<sup class="ref">ES-APIlim</sup></li>
+      </ul>
+    </div>
+    <div><div class="vshead sp">Shopify</div>
+      <ul style="margin:0;font-size:13px;padding-left:1.15em">
+        <li><b>CSV 匯入</b>：官方 CSV 原生<b>變體一列一個</b>（Option 欄）、圖片填 URL（Image Src／Variant Image）<b>匯入時自動下載重新託管</b>，200 品含變體可一次上傳。<sup class="ref">P-CSV</sup></li>
+        <li><b>API 批量建品</b>：<b>productSet</b> 單一請求建「商品＋全部變體＋圖片」（上限 2048 變體/品）、<b>bulkOperationRunMutation</b> 走 JSONL 批次且<b>官方明載不受標準速率限制</b>；限額有官方數字（REST 2–20 req/s 依方案）。賈維斯最好操作、可查證。<sup class="ref">P-bulk</sup></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tablewrap" style="margin-top:12px">
+  <table style="min-width:720px">
+    <thead><tr><th style="min-width:118px">做法</th><th class="ctr" style="min-width:120px">工時估算<br><span class="note">（200 品含變體）</span></th><th>EasyStore</th><th>Shopify</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="rowhead">① 純人工逐筆</td>
+        <td class="ctr"><b>約 4–5 工作天</b><br><span class="note">≈10 分/品×200</span></td>
+        <td>逐筆建品＋變體，最慢</td>
+        <td>逐筆建品＋變體，同慢</td>
+      </tr>
+      <tr>
+        <td class="rowhead">② CSV/Excel 批量</td>
+        <td class="ctr"><b>約 2–3 工作天</b><br><span class="note">整理表格＋上傳＋抽查</span></td>
+        <td><span class="cy">可</span>：官方支援<b>變體隨 CSV 一次帶入</b>（同 Handle 多列）；圖片外部 URL、<b>每商品限 3 張</b><sup class="ref">ES-CSV</sup></td>
+        <td><span class="cy">可，略省</span>：變體一列一個＋圖片 URL<b>自動下載重新託管</b>（張數更寬）<sup class="ref">P-CSV</sup></td>
+      </tr>
+      <tr class="rec">
+        <td class="rowhead">③ AI 自動化<br>（賈維斯用 API）</td>
+        <td class="ctr"><b>約 0.5–1 天整理<br>＋分鐘~十幾分鐘跑</b></td>
+        <td><span class="cm">要先實測</span>：API 建含變體/批次端點官方參考頁查無（500/404）、限額無官方數字，需開發者帳號試跑<sup class="ref">ES-APIlim</sup></td>
+        <td><span class="cy">最順可查證</span>：productSet＋bulk（JSONL）<b>繞過標準速率限制</b>、限額有官方數字<sup class="ref">P-bulk</sup></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note" style="margin:6px 0 0">※ 工時為<b>估算</b>（假設每筆純人工約 10 分鐘、CSV 整理約 3 分鐘/品），實際依商品資料完整度、圖片準備、變體數浮動。兩家 API 跑多久<b>共同瓶頸是「圖片上傳/託管」而非 API 呼叫次數</b>；Shopify 有官方 bulk 管道（明載繞過標準速率）＋限額官方數字，<b>EasyStore 的 API 批量端點與限額官方查無、需開發者帳號實測</b>——此為兩家 API 批量上架最大落差。</p>
+  <div class="callout good"><b>這一場對「開站時程」的實話：</b>❶ <b>走 CSV：兩家都能帶變體</b>（官方文件確認，我原先「EasyStore 變體要手動」的印象已被官方 CSV 文件更正）——差別小，Shopify 圖片自動託管/張數更寬、EasyStore 每商品圖片限 3 張要注意；❷ <b>走賈維斯 API：Shopify 有官方 bulk 管道（繞過速率）最快、可查證；EasyStore 的 API 批量規格官方不透明、要先實測</b>——但兩條路都能把 200 品從「4–5 人天」壓到「半天整理＋分鐘級跑＋抽查」，這正是 VETO 選「AI 代管」的實際價值。❸ <b>對關鍵路徑：老闆給我一份商品資料表＋一個圖片資料夾，200 品上架可從 v2 估的 2–4 週壓到約 3–5 天</b>（含整理、試跑、抽查、修錯）。<b>結論：把 200 品項交給賈維斯，兩家都不再是開站瓶頸；批量上架這一維度 Shopify 的官方規格較透明、可查證，EasyStore 則要簽約前實測 API 限額。</b></div>
+</div>
+
+<!-- 4 費用對決 -->
+<h2><span class="n">4</span>費用對決：帳面 vs 實際擁有成本（300 萬口徑，兩條線畫清楚）</h2>
+<p class="note">同一把尺（承《四平台費用評估》口徑）：一次性建置 30,000、綠界 2.75% 共同金流基準、年營收 300 萬、B2B 佔 40% 走匯款免金流（B2C 刷卡＝180 萬）。CMT 基礎款 33,600/年。Shopify USD 以 1 USD≈NT$32 換算。</p>
+
+<h3>線 A｜帳面（牌價，固定年費，看得見的錢）</h3>
+<div class="tablewrap">
+<table style="min-width:780px">
+  <thead><tr><th style="min-width:150px">項目</th><th class="num">EasyStore 成長版＋CMT</th><th class="num">Shopify Grow</th><th>備註</th></tr></thead>
+  <tbody>
+    <tr><td class="rowhead">平台年費</td><td class="num">64,788</td><td class="num">約 18,800</td><td>ES 5,399/月年繳；Shopify US$49/月×32×12<sup class="ref">ES·P費·FX</sup></td></tr>
+    <tr><td class="rowhead">進銷存 CMT</td><td class="num">33,600</td><td class="num">0～33,600</td><td>ES 必配（記月結）；Shopify <b>選配</b>（原生 net terms 已記應收，CMT 只補完整進銷存）<sup class="ref">CMT·P月結</sup></td></tr>
+    <tr><td class="rowhead">台灣 App 疊層</td><td class="num">0</td><td class="num">約 16,000</td><td>ES 基礎整合含在方案；Shopify 超取＋發票 App（Ako CVS／waaship＋台灣發）<sup class="ref">P-tw超商·P-tw發票</sup></td></tr>
+    <tr><td class="rowhead">平台交易抽成</td><td class="num">0</td><td class="num">18,000</td><td>ES <b>0 抽成</b>；Shopify Grow <b>1%×B2C 180 萬</b>（綠界費率之外再抽）<sup class="ref">P費</sup></td></tr>
+    <tr><td class="rowhead">金流手續費（B2C）</td><td class="num">49,500</td><td class="num">49,500</td><td>綠界 2.75%×180 萬，兩家同基準<sup class="ref">EC</sup></td></tr>
+    <tr><td class="rowhead">電子發票設定（一次）</td><td class="num">3,600</td><td class="num">含 App</td><td>ES 綠界設定費；Shopify 發票在台灣發 App 內<sup class="ref">EC</sup></td></tr>
+    <tr><td class="rowhead">建置（一次）</td><td class="num">30,000</td><td class="num">30,000</td><td>同口徑（美編＋模板＋串接＋首批上架設定）</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td>三年 TCO（帳面）</td><td class="num"><b>約 47.7 萬</b></td><td class="num"><b>約 34 萬</b>（不配 CMT）<br><b>約 44 萬</b>（配 CMT）</td><td class="num"><span class="wchip sp">Shopify 帳面低</span></td></tr>
+  </tfoot>
+</table>
+</div>
+
+<h3>線 B｜看不見的成本（實際擁有成本，把帳面拉近甚至反轉）</h3>
+<div class="tablewrap">
+<table style="min-width:780px">
+  <thead><tr><th style="min-width:130px">看不見的成本</th><th style="min-width:180px">EasyStore</th><th style="min-width:180px">Shopify</th><th>誰吃虧</th></tr></thead>
+  <tbody>
+    <tr><td class="rowhead">交易費加抽（隨營收漲）</td><td><span class="cy">無</span>（0 抽成，營收翻倍平台費不動）</td><td><span class="cn">每筆 B2C ＋1%</span>：180 萬＝1.8 萬/年，360 萬＝3.6 萬/年，線性上漲<sup class="ref">P費</sup></td><td class="ctr"><span class="cn">Shopify</span></td></tr>
+    <tr><td class="rowhead">台灣 App 疊層維護</td><td>低（在地原生、多含方案內）</td><td><span class="cn">高</span>：超取/發票/蝦皮各一 App，各自更新收費、各自可能出包</td><td class="ctr"><span class="cn">Shopify</span></td></tr>
+    <tr><td class="rowhead">英文文件工時</td><td>少（部分說明英文）</td><td><span class="cn">多</span>：型錄/Markets/B2B 新功能常只有英文，導入「跌跌撞撞」<sup class="ref">PR3</sup></td><td class="ctr"><span class="cn">Shopify</span></td></tr>
+    <tr><td class="rowhead">蝦皮整合</td><td>官方雙向（有同步延遲）</td><td><span class="cn">無官方</span>，靠海外小第三方 App<sup class="ref">P蝦皮</sup></td><td class="ctr"><span class="cn">Shopify</span></td></tr>
+    <tr><td class="rowhead">CMT／進銷存</td><td>已計入帳面（33,600）</td><td>月結原生，但<b>彙開發票／庫存成本仍在平台外</b>，要完整帳仍配 CMT</td><td class="ctr"><span class="cm">看需求</span></td></tr>
+    <tr><td class="rowhead">200 品項變體上架</td><td>變體可 CSV 帶入（官方）、圖片限 3 張；<b>API 批量規格官方不透明需實測</b><sup class="ref">ES-CSV·ES-APIlim</sup></td><td>變體 CSV＋官方 bulk API（繞過速率）、圖片自動託管<sup class="ref">P-CSV·P-bulk</sup></td><td class="ctr"><span class="cm">EasyStore<br>（API 不透明）</span></td></tr>
+    <tr><td class="rowhead">匯率</td><td>NT$ 計價、穩</td><td><span class="cm">USD 計價</span>，方案費隨匯率浮動<sup class="ref">FX</sup></td><td class="ctr"><span class="cm">Shopify</span></td></tr>
+    <tr><td class="rowhead">客服/自救工時</td><td><span class="cm">客服慢</span>（只能 email、照大馬工時），自救靠 Google<sup class="ref">U1·L-capterra</sup></td><td>官方英文工單、台灣同店網友少</td><td class="ctr"><span class="cm">兩家都有</span></td></tr>
+  </tbody>
+</table>
+</div>
+<div class="callout"><b>兩條線的結論（費用這局的決勝點）</b>：<b>線 A 帳面 Shopify 低（34～44 萬 vs 47.7 萬）</b>——這是事實，Shopify 這一分拿得漂亮。<b>但把線 B 疊上去</b>：Shopify 的 1% 交易費吃全部 B2C 且隨營收漲、超取/發票/蝦皮 App 各自收費更新、英文工時、USD 匯率——這些把帳面差距<b>從「明顯」拉到「接近」</b>；而 EasyStore 的 0 抽成，讓它在 <b>600 萬情境反手追平/超前</b>（62.6 萬 vs Shopify 54～64 萬，區間已重疊，再放大就 EasyStore 較省）。<b>一句話：想省開辦頭期＝Shopify；想省長期＝EasyStore；生意越做大，天平越倒向 EasyStore 的 0 抽成。</b></div>
+
+<!-- 5 風險對決 -->
+<h2><span class="n">5</span>風險對決：兩家各自的「簽約前要吞下什麼」</h2>
+<div class="grid2">
+  <div class="card">
+    <h3 style="margin-top:0"><span class="cy">EasyStore 的風險</span>（小眾 · 客服慢 · 搬家）</h3>
+    <ul style="margin-bottom:0;font-size:14px">
+      <li><b>台灣小眾、生態薄</b>：被歸為「入門級/市場新進者」，中文教學少（PTT 熱度集中 2020–22）、同店網友少、部分文件英文——出事比較孤單。<sup class="ref">U2</sup></li>
+      <li><b>客服只能寫信、沒有電話</b>，還照馬來西亞上班時間、偶有罐頭回覆；Capterra 客服項 3.6/5。<sup class="ref">U1·L-capterra</sup></li>
+      <li><b>搬家帶得走但不完整</b>：訂單/會員/商品可匯出，<b>但商品分類無法單獨匯出、設計完全帶不走</b>（Liquid 平台通病）；且<b>幾乎每年調方案</b>（漲價/砍功能）。<sup class="ref">L-migrate·U12</sup></li>
+      <li><b>規模天花板黑箱</b>：SKU/流量/會員數上限官方全未公開，做大到需要這些數字時只能問業務。<sup class="ref">U2</sup></li>
+      <li><b>模板少、結帳頁改不動</b>：要華麗獨特官網的話會撞牆。</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0"><span class="cn">Shopify 的風險</span>（在地弱 · 組裝複雜 · 匯率）</h3>
+    <ul style="margin-bottom:0;font-size:14px">
+      <li><b>台灣在地化三家最弱</b>：無自營金流、綠界官方 App 掛牌 4 年 0 評價、藍新無 App、蝦皮無官方通路、超取 COD 體驗不如本土——CodeLove 專文列為「台灣很少人用」主因。<sup class="ref">P-tw金流·PR7</sup></li>
+      <li><b>組裝複雜、維護分散</b>：金流/超取/發票/蝦皮是 3–4 個 App，各自收費更新；建置期三家最長、英文文件濃、導入「跌跌撞撞」。<sup class="ref">PR3</sup></li>
+      <li><b>「便宜月費」是錯覺</b>：非官方金流<b>多抽 1%</b>吃全部 B2C，加 App 月費，總成本要疊三層才算得準。<sup class="ref">P費</sup></li>
+      <li><b>匯率風險</b>：方案 USD 計價（Grow US$49/月），NT$ 成本隨臺銀匯率浮動。<sup class="ref">FX</sup></li>
+      <li><b>結構性限制</b>：型錄非 Plus 限 3 本、月結無信用額度不自動鎖單、催款 Flow 是否限 Plus 官方兩頁矛盾、多幣別綁自營金流（台灣無解）。<sup class="ref">P-B2B·P月結</sup></li>
+    </ul>
+  </div>
+</div>
+<div class="callout info"><b>風險的性質不同</b>：EasyStore 的風險是<b>「小廠的孤單」</b>——平台本身能用，但你要有「自己動手、出事 Google」的心理準備；Shopify 的風險是<b>「大廠的水土不服」</b>——引擎一流，但在台灣要一直繞路、多付、查英文。兩者都不是致命傷，是<b>兩種不同的日常摩擦</b>，選哪個看老闆受得了哪一種。<b>SHOPLINE 那種「綁年約違約金＋GMV 抽成越做越貴＋中資調查未結」的風險，這兩家都沒有</b>——這也是決賽為何是它們倆。</div>
+
+<!-- 6 最終建議 -->
+<h2><span class="n">6</span>最終建議：明確選邊＋翻轉條件＋下一步</h2>
+<div class="card verdict">
+  <div class="lead">★ 選邊：EasyStore 成長版＋CMT（維持首選，三年約 47.7 萬）</div>
+  <p class="big" style="margin-top:2px;margin-bottom:8px">十回合 Shopify 帳面小勝，但決策翻向 EasyStore——不是情感，是把每個回合乘上「對 VETO 的權重」與「缺口補起來多難」之後的結果。三個理由：</p>
+  <ol style="margin:0 0 4px;font-size:14.5px">
+    <li><b>EasyStore 贏的三回合天天有感、對有限人力最友善。</b>台灣在地化（收款/超取/發票/中文客服開箱即用）、建置速度（少拼裝、最快上線）、維護負擔（要顧的零件最少、無鎖定）——這三項是<b>每天、每張發票、每次改版都在省的力</b>；Shopify 疊 3–4 個 App 省下的方案費，會用人力補回去。</li>
+    <li><b>EasyStore「輸」的回合，是用平價外掛就補得起的已知缺口。</b>月結雖輸得壓倒性，但一套 CMT（33,600/年、前後台分工清楚、換前台不用換帳房）就補平；API 雖淺，但免費版已夠 VETO 的日常 AI 代管（抓單/改庫存/上架/日報）。Shopify 的原生月結＋B2B 物件 API 是「<b>更高的天花板</b>」，不是 VETO 的「<b>日常必需</b>」。</li>
+    <li><b>0 抽成＝生意越大越省。</b>Shopify 每筆 B2C 刷卡多抽 1% 隨營收漲；EasyStore 0 抽成、營收翻倍平台費不動。帳面 Shopify 低（34–44 萬），但配完整進銷存後只差約 4 萬（三年），放大到 600 萬 EasyStore 反手追平——VETO 是「要把生意做大」的規劃，長期站 EasyStore 這邊。</li>
+  </ol>
+  <p class="note" style="margin:8px 0 0"><b>方案：EasyStore 成長版（年繳月費 5,399）</b>——批發官網＋分級價它有、POS 卡好未來門市的位、通路/帳號數夠 AI 多通路跑；搭 CMT 記月結應收。</p>
+</div>
+
+<div class="card verdict blue">
+  <div class="lead">↺ 決策翻轉條件：什麼情況成立時，改選 Shopify 反而對</div>
+  <p style="margin:.2em 0 6px;font-size:14px">下面<b>任一條成立、且能吞第 4 條的代價</b>，Shopify 就反超：</p>
+  <ol style="margin:0;font-size:14px">
+    <li><b>月結要「平台原生」、不想再接一套進銷存</b>：老闆把「應收記在購物網站裡、少一套 CMT 要對帳」看得比在地便利更重 → Shopify net terms 是唯一原生。</li>
+    <li><b>未來有跨境／國際站計畫</b>：要把台灣代理延伸成國際 DTC 品牌 → Shopify 全球生態、多語多幣、Plus 升級路徑最好。</li>
+    <li><b>要「AI 全自動管經銷」</b>：不只顧日常，還要賈維斯自動開經銷帳號、依規則動態改分級價 → 只有 Shopify 的 B2B 物件 API 做得到全套。</li>
+    <li><b>（代價，要一起吞）</b>：接受開店組裝期最長、蝦皮整合最弱、出事查英文文件、每筆 B2C 多抽 1%、方案 USD 計價。</li>
+  </ol>
+  <p class="note" style="margin:8px 0 0"><b>白話：</b>VETO 若「精打細算、在地為主、月結接受人工＋CMT」→ EasyStore；若「月結潔癖／要跨境／要 AI 當經銷業務助理，且肯吞台灣落地的工」→ Shopify。</p>
+</div>
+
+<h3>下一步行動清單</h3>
+<div class="grid2">
+  <div class="card">
+    <h3 style="margin-top:0">A. 兩家都開試用，實測這幾件事</h3>
+    <ul style="margin-bottom:0;font-size:14px">
+      <li><b>EasyStore</b>：開試用建「批發官網＋兩組價格表」測分級價/隱藏品項；<b>拿 10 個含變體品項測 .xlsx 匯入</b>，確認變體到底能不能帶、手動要多久。</li>
+      <li><b>Shopify</b>：開試用建「公司檔案＋金級/銀級型錄＋Net 30」測原生月結；<b>拿同 10 品測 CSV 變體批量＋圖片 URL</b>。</li>
+      <li><b>賈維斯（我）</b>：老闆給一份 <b>10 品的商品資料表＋圖片資料夾</b>，我兩家各用 API 批量建一次，<b>實測 EasyStore 限額（官方黑箱）與 Shopify 限額</b>，回報 200 品各要跑多久——這決定 200 品上架走哪條路。</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">B. 向業務要書面答覆（各家版本）</h3>
+    <ul style="margin-bottom:0;font-size:14px">
+      <li><b>EasyStore 業務</b>：①成長版<b>是否即含 Open API</b>（綁哪些方案）②批發官網/價格表全含無隱藏加費 ③規模上限（SKU/流量/會員）④訂單能否<b>依日期篩選匯出</b>（現況）。</li>
+      <li><b>Shopify 業務／實測</b>：①<b>payment terms 能否完整經 API 操作</b>（AI 管月結前提）②催款 Flow 自動化<b>是否限 Plus</b>（官方兩頁矛盾）③台灣 App 月費總額（超取＋發票＋蝦皮）④綠界串接實際工時。</li>
+      <li><b>CMT（兩案共通）</b>：帳號數/月單量落哪一級、超量加價、對帳單格式、未付款批發單拋轉的狀態對應。</li>
+    </ul>
+  </div>
+</div>
+<div class="callout good" style="margin-top:4px"><b>一句話收尾給老闆：</b>決賽兩家都是好選擇，沒有錯的決定，只有「要哪一種日常」。<b>我的建議是 EasyStore＋CMT——它把 VETO 天天要用的在地便利做到最好、長期最省，缺的月結用一套平價 CMT 補齊，200 品上架我用 API 幫你壓到幾天內。</b>除非你對「月結原生／跨境／AI 全自動管經銷」有明確的硬需求，那才值得為 Shopify 多吞台灣落地的那些工。等你拍板方向，我就照上面的清單開兩家試用、發業務確認題。</div>
+
+<!-- 7 來源 -->
+<h2><span class="n">7</span>來源清單（沿用代號 · 查證 2026-07-09）</h2>
+<div class="card">
+<p class="note" style="margin-top:0">本報告承接並沿用四份查證報告的代號與口徑：《EasyStore 場景應用分析》（O-／U-／L- 系）、《Shopify 與 SHOPLINE 場景應用分析》（P-／PR- 系）、《VETO 四平台費用評估》（TCO 口徑）、《VETO 官網 ERP 建置評估 v2》（五項需求與時程）。平台牌價受改版與促銷影響，正式決策前以官網當下頁面／業務書面報價為準。</p>
+<h3 style="margin-top:6px">EasyStore</h3>
+<ol class="refs">
+  <li><b>ES／O-價格</b> 台灣定價（成長版 5,399/月年繳、0% 抽成、無開辦費、四方案批發/POS 門檻）：<a href="https://www.easystore.co/zh-tw/pricing">easystore.co/zh-tw/pricing</a></li>
+  <li><b>O批發</b> 批發官網 Wholesale Portal（邀請制／價格表／量大折扣／同後台雙前台）：<a href="https://www.easystore.co/en-us/wholesale">easystore.co/en-us/wholesale</a>・<a href="https://support.easystore.co/en/article/introduction-of-wholesale-portal-2vjlr3/">support：Wholesale Portal</a></li>
+  <li><b>O-API</b> 開發者文件（Open API 免費 products/orders/customers CRUD、OAuth）：<a href="https://developers.easystore.co/">developers.easystore.co</a> ｜ <b>O-變體</b> 商品變體（最多 3 種 option／100 value）：<a href="https://support.easystore.co/en/article/add-product-with-variants-1trs89p/">support：add-product-with-variants</a></li>
+  <li><b>ES-CSV</b> 大量匯入商品 CSV（官方：<b>變體用同一 Handle 多列＋Option 1/2/3 帶入</b>、圖片 Image1/2/3 外部 URL 每商品最多 3 張、不可增刪欄位）：<a href="https://support.easystore.co/en/article/import-products-with-csv-tfvvub/">support：import-products-with-csv</a> ｜ <b>ES-APIlim</b> API 呼叫限制（官方<b>僅用回應表頭告知、未公布具體數字</b>；建品/批次端點官方參考頁 500/404，完整參考在 Postman 動態頁，需開發者帳號實測）：<a href="https://developers.easystore.co/docs/api/getting-started/api-call-limit">developers：api-call-limit</a></li>
+  <li><b>O-金流</b> 約 20 家台灣金流 ｜ <b>O-無金流</b> 官方明載不經手金流/不收手續費/需自申 ｜ <b>O-物流</b> 四大超商/宅配 ｜ <b>O-多通路</b> 蝦皮雙向串接（同步延遲）：<a href="https://www.easystore.co/zh-tw/payments">/payments</a>・<a href="https://www.easystore.co/en-us/logistics">/logistics</a> ｜ <b>O-跨境</b> 東南亞跨境：<a href="https://www.easystore.co/en-us/crossborder">/crossborder</a> ｜ <b>O-群發</b> 原生群發訊息（Email/簡訊/LINE/推播，無視覺化 EDM 設計器、美編需外掛）：<a href="https://www.easystore.co/en-us/apps/browse/marketing">/apps/browse/marketing</a></li>
+  <li><b>U1／L-capterra</b> 客服馬來西亞只能 email／Capterra 客服 3.6/5：<a href="https://www.capterra.com/p/151089/EasyStore/reviews/">capterra.com/EasyStore</a>・PTT e-seller ｜ <b>U2</b> 模板少/在地小眾/天花板黑箱（第三方評測與 PTT）｜ <b>U4</b> 後台一人可操作 ｜ <b>U7</b> 蝦皮同步常出錯/變體要手動/數據陽春（PTT e-seller）：<a href="https://www.ptt.cc/bbs/e-seller/M.1634820698.A.586.html">ptt.cc/e-seller/1634820698</a> ｜ <b>U12</b> 幾乎每年調方案 ｜ <b>L-migrate</b> 搬家：商品分類無法單獨匯出：<a href="https://blog.ntcart.com/146/easystore-to-opencart">blog.ntcart.com/146</a></li>
+</ol>
+<h3>Shopify</h3>
+<ol class="refs">
+  <li><b>P-B2B</b> 2026-04-02「B2B for all」（公司檔案／分級型錄/非 Plus 限 3 本/blended store）：<a href="https://changelog.shopify.com/posts/key-b2b-features-now-available-on-non-plus-plans">changelog.shopify.com</a>・<a href="https://help.shopify.com/en/manual/b2b/companies-and-customers">help：companies-and-customers</a> ｜ <b>P型錄</b> B2B 型錄（整本折扣/逐項覆蓋/CSV 變體）：<a href="https://help.shopify.com/en/manual/b2b/catalogs">help：catalogs</a></li>
+  <li><b>P月結</b> net terms（Net 7–90/免卡號/Overdue/到期不自動扣款）：<a href="https://help.shopify.com/en/manual/b2b/checkout-and-orders/payment-terms">help：payment-terms</a> ｜ <b>P催款</b> 付款提醒（Flow 是否限 Plus 官方兩頁矛盾）：<a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/payments/deferred-payments">help：deferred-payments</a></li>
+  <li><b>P價／P費</b> 方案定價（Basic US$19/Grow US$49/Advanced US$299/Plus US$2,300–2,500）＋第三方金流交易費（Basic 2%/Grow 1%/Advanced 0.6%）：<a href="https://www.shopify.com/pricing">shopify.com/pricing</a>・<a href="https://www.shopify.com/tw/pricing">/tw/pricing</a></li>
+  <li><b>P-tw金流</b> Shopify Payments 支援國清單（無台灣）：<a href="https://help.shopify.com/en/manual/payments/shopify-payments/supported-countries">help：supported-countries</a> ｜ <b>P-tw超商</b> Ako CVS（US$29/月起）/waaship（NT$499/月起）｜ <b>P-tw發票</b> 台灣發（US$9–60/月）：<a href="https://apps.shopify.com/taiwan-shipping">apps：taiwan-shipping</a>・<a href="https://apps.shopify.com/taiwan-invoice">apps：taiwan-invoice</a></li>
+  <li><b>P蝦皮</b> 官方通路清單無蝦皮/舊 Shopee App 已下架/靠小型第三方：<a href="https://www.shopify.com/channels">shopify.com/channels</a> ｜ <b>P-API</b> Admin GraphQL API 之 B2B 物件（Company/CompanyLocation/Catalog/PriceList；payment terms API 完整度未明載）：<a href="https://shopify.dev/docs/api/admin">shopify.dev/docs/api/admin</a></li>
+  <li><b>P-CSV</b> 商品 CSV 匯入（官方：變體一列一個 one row per variant、Image Src／Variant Image 填 URL、匯入時自動下載重新託管）：<a href="https://help.shopify.com/en/manual/products/import-export/using-csv">help：products/import-export/using-csv</a> ｜ <b>P-bulk</b> API 批量建品（<b>productSet</b> 單請求建商品＋全部變體＋media、上限 2048 變體/品；<b>bulkOperationRunMutation</b> JSONL 批次、官方明載不受標準速率限制、每店最多 5 個並行）＋速率限制（REST 2/4/20 req/s 依 Standard/Advanced/Plus、GraphQL 桶 1000–10000）：<a href="https://shopify.dev/docs/api/usage/rate-limits">shopify.dev：rate-limits</a>・<a href="https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet">productSet</a>・<a href="https://shopify.dev/docs/api/usage/bulk-operations/imports">bulk-operations/imports</a></li>
+  <li><b>PR3</b> PTT Marketing（導入跌跌撞撞/英文文件）｜ <b>PR7</b> CodeLove 站長「台灣很少公司用 Shopify 的原因」（超取/金流/發票全靠第三方）：<a href="https://codelove.tw/@howtomakeaturn/post/ayYYda">codelove.tw/@howtomakeaturn</a></li>
+</ol>
+<h3>共通（費用口徑／進銷存／金流／匯率）</h3>
+<ol class="refs">
+  <li><b>TCO</b> 三年費用口徑與兩家 TCO 數字：《VETO 四平台費用評估 20260709》（綠界 2.75% 共同基準、營收 300/600 萬假設、B2B 40% 走匯款免金流）｜ <b>CMT</b> Cloudmaker CMT（基礎款 2,800/月＝33,600/年、應收/沖帳/電子發票；本身無開放 API）：<a href="https://www.cloudmaker.com.tw/plans-pricing-cmt/">cloudmaker.com.tw/plans-pricing-cmt</a></li>
+  <li><b>EC</b> 綠界 ECPay（信用卡 2.75%、電子發票設定 3,600/首年 2 萬張 0 元）：<a href="https://www.ecpay.com.tw/Business/payment_fees">ecpay.com.tw/Business/payment_fees</a> ｜ <b>FX</b> 臺灣銀行牌告匯率（2026-07-08，1 USD≈NT$32）：<a href="https://rate.bot.com.tw/xrt">rate.bot.com.tw/xrt</a></li>
+</ol>
+<h3>明列不確定項（不臆測，簽約前確認）</h3>
+<ul class="note" style="margin:0">
+  <li><b>EasyStore</b>：Open API 綁哪些方案（成長版是否即含）、<b>API 呼叫上限官方無具體數字＋建含變體/批次端點官方參考頁 500/404（只在 Postman 動態頁），200 品 API 批量前須用開發者帳號實測</b>、規模上限（SKU/流量/會員）、訂單能否依日期篩選匯出。（<b>變體「CSV 匯入」已由官方文件確認可帶入</b><sup class="ref">ES-CSV</sup>，本項已解。）</li>
+  <li><b>Shopify</b>：payment terms 能否完整經 API 操作、催款 Flow 是否限 Plus（官方兩頁矛盾）、綠界官方 App 實際可用性（多走手動串接）、各方案 API 限額實測值。</li>
+  <li><b>共通</b>：三年費用皆為假設情境試算（營收 300/600 萬、B2B 40%、200 品項）；工時為估算，非任何一方實際數字；平台功能與價格改版頻繁，以官網當下頁面／業務書面為準。</li>
+</ul>
+</div>
+
+<footer>
+  <p>本報告由賈維斯（如菓室內設計工程統籌 AI）彙整，為 VETO 官網「EasyStore vs Shopify 二選一」決策文件，承接《EasyStore 場景應用分析》《Shopify 與 SHOPLINE 場景應用分析》《VETO 四平台費用評估》《VETO 官網 ERP 建置評估 v2》四份查證報告，採同一把尺與同一費用口徑。十回合與七場景之判定力求對兩家公平，不因前份報告推薦 EasyStore 而偏袒；功能與價格為 2026-07-09 查證之官方現行資料，具時效性，查無或矛盾者標「需確認」、未臆測。營收情境（300/600 萬）、B2B 佔比（40%）、品項數（200）與各項工時為試算/估算假設，不代表 VETO 任何實際數字。本報告為公開文件，不含任何一方內部成本或利潤。正式決策前請向兩平台索取書面報價並開試用實測。</p>
+  <p>查證來源：EasyStore（定價／功能／幫助中心／開發者文件）· Shopify（changelog／help／pricing／App Store／shopify.dev）· Cloudmaker CMT · 綠界 ECPay · 臺灣銀行匯率 · PTT／Dcard／CodeLove／Capterra 等具名用戶評價，以及承接之四份查證報告。</p>
+</footer>
+
+</div>
+</body></html>
