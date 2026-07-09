@@ -24,41 +24,41 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;}
+    line-height:1.7;font-size:18px;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:1000px;margin:0 auto;padding:32px 20px 72px;}
   header.masthead{border-bottom:3px solid var(--accent);padding-bottom:20px;margin-bottom:8px;}
-  .eyebrow{font-size:13px;letter-spacing:.14em;color:var(--accent);font-weight:700;text-transform:uppercase;}
-  h1{font-size:27px;line-height:1.3;margin:.35em 0 .15em;font-weight:800;letter-spacing:-.01em;}
-  .sub{color:var(--ink-soft);font-size:15px;margin:0;}
-  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:var(--ink-soft);}
+  .eyebrow{font-size:15px;letter-spacing:.14em;color:var(--accent);font-weight:700;text-transform:uppercase;}
+  h1{font-size:29px;line-height:1.3;margin:.35em 0 .15em;font-weight:800;letter-spacing:-.01em;}
+  .sub{color:var(--ink-soft);font-size:17px;margin:0;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:15px;color:var(--ink-soft);}
   .meta b{color:var(--ink);font-weight:600;}
-  h2{font-size:20px;margin:38px 0 14px;padding-top:6px;font-weight:800;letter-spacing:-.01em;
+  h2{font-size:22px;margin:38px 0 14px;padding-top:6px;font-weight:800;letter-spacing:-.01em;
     display:flex;align-items:center;gap:10px;}
   h2 .n{display:inline-flex;align-items:center;justify-content:center;min-width:27px;height:27px;padding:0 7px;
-    background:var(--accent);color:#fff;border-radius:8px;font-size:15px;font-weight:800;}
-  h3{font-size:16px;margin:22px 0 8px;font-weight:700;}
+    background:var(--accent);color:#fff;border-radius:8px;font-size:17px;font-weight:800;}
+  h3{font-size:18px;margin:22px 0 8px;font-weight:700;}
   p{margin:.5em 0;}
   .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
     box-shadow:var(--shadow);margin:14px 0;}
   .verdict{background:linear-gradient(180deg,var(--good-soft),var(--surface));border:1px solid var(--good);
     border-left:6px solid var(--good);}
-  .verdict .lead{font-size:15px;color:var(--good);font-weight:800;letter-spacing:.02em;margin-bottom:2px;}
-  .verdict h3{font-size:19px;margin:.1em 0 .4em;}
+  .verdict .lead{font-size:17px;color:var(--good);font-weight:800;letter-spacing:.02em;margin-bottom:2px;}
+  .verdict h3{font-size:21px;margin:.1em 0 .4em;}
   .verdict.warnbox{background:linear-gradient(180deg,var(--warn-soft),var(--surface));border-color:var(--warn);border-left-color:var(--warn);}
   .verdict.warnbox .lead{color:var(--warn);}
   .verdict.blue{background:linear-gradient(180deg,var(--accent-soft),var(--surface));border-color:var(--accent);border-left-color:var(--accent);}
   .verdict.blue .lead{color:var(--accent);}
-  .big{font-size:15px;}
-  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12.5px;font-weight:700;
+  .big{font-size:17px;}
+  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:14.5px;font-weight:700;
     background:var(--accent-soft);color:var(--accent);border:1px solid transparent;white-space:nowrap;}
   .pill.good{background:var(--good-soft);color:var(--good);}
   .pill.warn{background:var(--warn-soft);color:var(--warn);}
   .pill.danger{background:var(--danger-soft);color:var(--danger);}
   .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;margin:14px 0;
     box-shadow:var(--shadow);}
-  table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px;background:var(--surface);}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:16px;background:var(--surface);}
   th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
-  thead th{background:var(--surface-2);font-weight:700;font-size:13px;color:var(--ink);position:sticky;top:0;
+  thead th{background:var(--surface-2);font-weight:700;font-size:15px;color:var(--ink);position:sticky;top:0;
     border-bottom:2px solid var(--line);}
   tbody tr:last-child td{border-bottom:none;}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
@@ -66,9 +66,9 @@
   tr.rec td{background:var(--good-soft);}
   tfoot td{background:var(--surface-2);font-weight:700;border-top:2px solid var(--accent);}
   .rowhead{font-weight:700;}
-  .src{color:var(--accent);text-decoration:none;font-size:12px;border-bottom:1px dotted var(--accent);}
+  .src{color:var(--accent);text-decoration:none;font-size:14px;border-bottom:1px dotted var(--accent);}
   .src:hover{opacity:.75;}
-  sup.ref{font-size:11px;color:var(--accent);font-weight:700;margin-left:1px;}
+  sup.ref{font-size:13px;color:var(--accent);font-weight:700;margin-left:1px;}
   .cy{color:var(--good);font-weight:700;}
   .cn{color:var(--danger);font-weight:700;}
   .cm{color:var(--warn);font-weight:700;}
@@ -76,18 +76,18 @@
   li{margin:.32em 0;}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   @media (max-width:680px){.grid2{grid-template-columns:1fr;}}
-  .note{font-size:13px;color:var(--ink-soft);}
-  .callout{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;margin:12px 0;}
+  .note{font-size:15px;color:var(--ink-soft);}
+  .callout{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 10px 10px 0;padding:12px 16px;font-size:16px;margin:12px 0;}
   .callout.info{border-color:var(--accent);background:var(--accent-soft);}
   .callout.danger{border-color:var(--danger);background:var(--danger-soft);}
   .callout.good{border-color:var(--good);background:var(--good-soft);}
-  .refs{font-size:12.5px;color:var(--ink-soft);}
+  .refs{font-size:14.5px;color:var(--ink-soft);}
   .refs li{margin:.3em 0;word-break:break-all;}
   .refs a{color:var(--accent);text-decoration:none;}
   /* 對決專用 */
   .secband{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:6px 18px;margin:34px 0 4px;border-left:6px solid var(--accent);}
   .secband h2{margin:12px 0;}
-  .wchip{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;font-size:12.5px;font-weight:800;white-space:nowrap;}
+  .wchip{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;font-size:14.5px;font-weight:800;white-space:nowrap;}
   .wchip.es{background:var(--good-soft);color:var(--good);}
   .wchip.sp{background:var(--accent-soft);color:var(--accent);}
   .wchip.tie{background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--line);}
@@ -97,25 +97,25 @@
   .gap-s{color:var(--danger);font-weight:800;} .gap-c{color:var(--warn);font-weight:800;} .gap-n{color:var(--ink-soft);font-weight:700;}
   .round{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;box-shadow:var(--shadow);margin:12px 0;}
   .round .rh{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:6px;}
-  .round .rh .rn{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 6px;background:var(--ink-soft);color:var(--surface);border-radius:7px;font-size:13px;font-weight:800;}
-  .round .rh .rt{font-size:16px;font-weight:800;}
+  .round .rh .rn{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 6px;background:var(--ink-soft);color:var(--surface);border-radius:7px;font-size:15px;font-weight:800;}
+  .round .rh .rt{font-size:18px;font-weight:800;}
   .round .two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0;}
   @media (max-width:680px){.round .two{grid-template-columns:1fr;}}
-  .side{border-radius:10px;padding:9px 12px;font-size:13.5px;border:1px solid var(--line);background:var(--surface-2);}
-  .side .nm{font-weight:800;font-size:12.5px;display:block;margin-bottom:2px;}
+  .side{border-radius:10px;padding:9px 12px;font-size:15.5px;border:1px solid var(--line);background:var(--surface-2);}
+  .side .nm{font-weight:800;font-size:14.5px;display:block;margin-bottom:2px;}
   .side.es{border-left:4px solid var(--good);} .side.es .nm{color:var(--good);}
   .side.sp{border-left:4px solid var(--accent);} .side.sp .nm{color:var(--accent);}
-  .impact{font-size:13.5px;margin:6px 0 0;padding:8px 12px;border-left:4px solid var(--ink-soft);background:var(--surface-2);border-radius:0 8px 8px 0;}
+  .impact{font-size:15.5px;margin:6px 0 0;padding:8px 12px;border-left:4px solid var(--ink-soft);background:var(--surface-2);border-radius:0 8px 8px 0;}
   .scn{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0;}
-  .scn .tag{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.05em;}
-  .scn h3{margin:.15em 0 .5em;font-size:17px;}
-  .scn .anlg{font-size:13.5px;color:var(--ink-soft);margin:0 0 10px;}
-  .vshead{font-weight:800;font-size:13.5px;margin:0 0 6px;padding-bottom:5px;border-bottom:2px solid var(--line);}
+  .scn .tag{font-size:14px;font-weight:800;color:var(--accent);letter-spacing:.05em;}
+  .scn h3{margin:.15em 0 .5em;font-size:19px;}
+  .scn .anlg{font-size:15.5px;color:var(--ink-soft);margin:0 0 10px;}
+  .vshead{font-weight:800;font-size:15.5px;margin:0 0 6px;padding-bottom:5px;border-bottom:2px solid var(--line);}
   .vshead.es{color:var(--good);border-color:var(--good);} .vshead.sp{color:var(--accent);border-color:var(--accent);}
-  .scnwin{font-size:13px;margin:10px 0 0;padding:9px 13px;border-radius:9px;background:var(--surface-2);border:1px solid var(--line);}
-  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);}
+  .scnwin{font-size:15px;margin:10px 0 0;padding:9px 13px;border-radius:9px;background:var(--surface-2);border:1px solid var(--line);}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft);}
   .themebtn{position:fixed;right:14px;top:14px;z-index:9;background:var(--surface);border:1px solid var(--line);
-    color:var(--ink);border-radius:9px;padding:7px 11px;font-size:13px;cursor:pointer;box-shadow:var(--shadow);}
+    color:var(--ink);border-radius:9px;padding:7px 11px;font-size:15px;cursor:pointer;box-shadow:var(--shadow);}
   @media print{
     :root{--bg:#fff;--surface:#fff;--surface-2:#f3f5f7;--shadow:none;}
     body{font-size:11.5pt;}
@@ -351,8 +351,8 @@
   <h3>消費者買一個工具袋：從下單到收貨</h3>
   <p class="anlg">師傅上官網挑腰包、付錢、超商取貨、拿發票。最基本的一條龍。</p>
   <div class="grid2">
-    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px">金流（信用卡/ATM/超商/貨到付款/LINE Pay）、四大超商、電子發票齊；棄單 24 小時自動喚回。<b>坑在「開店初期設定」</b>：金流要先接綠界、發票先裝 App、超商有重量上限（7-11 到 10kg）——設好就一路通。<sup class="ref">O-金流·O-超商</sup></p></div>
-    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px">店面三家最漂亮自由，繁中＋TWD 可設。<b>但要先「組」：</b>金流跟綠界申請串接、超取一個 App、發票一個 App；而且每筆 B2C <b>綠界 2.75%＋Shopify 再抽 1%</b>＝雙層抽；超商取貨付款體驗不如本土原生。<sup class="ref">EC·P費·PR7</sup></p></div>
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:15.5px">金流（信用卡/ATM/超商/貨到付款/LINE Pay）、四大超商、電子發票齊；棄單 24 小時自動喚回。<b>坑在「開店初期設定」</b>：金流要先接綠界、發票先裝 App、超商有重量上限（7-11 到 10kg）——設好就一路通。<sup class="ref">O-金流·O-超商</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:15.5px">店面三家最漂亮自由，繁中＋TWD 可設。<b>但要先「組」：</b>金流跟綠界申請串接、超取一個 App、發票一個 App；而且每筆 B2C <b>綠界 2.75%＋Shopify 再抽 1%</b>＝雙層抽；超商取貨付款體驗不如本土原生。<sup class="ref">EC·P費·PR7</sup></p></div>
   </div>
   <p class="scnwin"><b>這一場：EasyStore 順</b>。兩家功能都齊，但 EasyStore 在地原生、少一層交易費、超取更順；Shopify 漂亮自由但要組裝＋每單被雙層抽。</p>
 </div>
@@ -363,12 +363,12 @@
   <p class="anlg">這是 VETO 的命脈場景，也是兩家差最多的一段。同一件事，兩種完全不同的走法。</p>
   <div class="grid2">
     <div><div class="vshead es">EasyStore＋CMT（前台後台分工）</div>
-      <p style="margin:0 0 6px;font-size:13px">發邀請開帳號 → 經銷商登入看專屬價 → 下單選「月結匯款」 → <b>你審單看額度（人工看 CMT 應收餘額）</b> → 出貨＋訂單拋轉 CMT 記應收 → 月底 CMT 彙總對帳、開發票 → 收款沖帳。<sup class="ref">O批發·CMT</sup></p>
-      <p style="margin:0;font-size:13px"><b>特色：</b>EasyStore 負責「賣」、CMT 負責「記帳」，職責清楚；<b>好處是換前台不用換帳房</b>（CMT 獨立可攜），壞處是多一套系統要對、月結那本帳不在購物網站裡。</p>
+      <p style="margin:0 0 6px;font-size:15px">發邀請開帳號 → 經銷商登入看專屬價 → 下單選「月結匯款」 → <b>你審單看額度（人工看 CMT 應收餘額）</b> → 出貨＋訂單拋轉 CMT 記應收 → 月底 CMT 彙總對帳、開發票 → 收款沖帳。<sup class="ref">O批發·CMT</sup></p>
+      <p style="margin:0;font-size:15px"><b>特色：</b>EasyStore 負責「賣」、CMT 負責「記帳」，職責清楚；<b>好處是換前台不用換帳房</b>（CMT 獨立可攜），壞處是多一套系統要對、月結那本帳不在購物網站裡。</p>
     </div>
     <div><div class="vshead sp">Shopify（平台原生記帳）</div>
-      <p style="margin:0 0 6px;font-size:13px">建公司檔案＋營業點 → 指派型錄（經銷價）＋設 Net 30 → 經銷商登入下單<b>免輸卡號</b> → 出貨、訂單自動掛「未付款・N 天後到期」 → 到期前自動催款 → 後台篩「未付款/Overdue」＝<b>現成應收清單</b>。<sup class="ref">P-B2B·P月結</sup></p>
-      <p style="margin:0;font-size:13px"><b>特色：</b>月結記在平台內、<b>少接一層進銷存</b>；但發票彙開與庫存成本仍在平台外（仍可能要 CMT）；型錄非 Plus 限 3 本。</p>
+      <p style="margin:0 0 6px;font-size:15px">建公司檔案＋營業點 → 指派型錄（經銷價）＋設 Net 30 → 經銷商登入下單<b>免輸卡號</b> → 出貨、訂單自動掛「未付款・N 天後到期」 → 到期前自動催款 → 後台篩「未付款/Overdue」＝<b>現成應收清單</b>。<sup class="ref">P-B2B·P月結</sup></p>
+      <p style="margin:0;font-size:15px"><b>特色：</b>月結記在平台內、<b>少接一層進銷存</b>；但發票彙開與庫存成本仍在平台外（仍可能要 CMT）；型錄非 Plus 限 3 本。</p>
     </div>
   </div>
   <div class="callout"><b>兩家共同的坑（別以為 Shopify 原生就沒有）：</b>兩家<b>都沒有「欠超額自動鎖單」</b>——信用額度控管一律人工 SOP，這是整個賽道通則（只有 Woo 外掛與 Shopify Plus 例外）。差別只是：EasyStore 你去 CMT 看餘額，Shopify 你在後台看 Overdue 清單。</div>
@@ -380,8 +380,8 @@
   <h3>上架新品（少量）：一款工具袋建進去</h3>
   <p class="anlg">單款、少量，手動建。（大量 200 款見場景⑧。）</p>
   <div class="grid2">
-    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px">後台清爽、「一個人就能操作」；單款建品含變體、上圖直覺。每個商品<b>最多 3 種規格類別</b>（型號＋顏色＋尺寸剛好用滿）。<sup class="ref">O-變體·U4</sup></p></div>
-    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px">單款建品效率也高；B2B 價可在型錄「整本打折」再逐項覆蓋、不用逐商品手填。<b>但介面進到型錄/Markets/B2B 常只有英文</b>，學習曲線在前。<sup class="ref">P型錄·PR3</sup></p></div>
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:15.5px">後台清爽、「一個人就能操作」；單款建品含變體、上圖直覺。每個商品<b>最多 3 種規格類別</b>（型號＋顏色＋尺寸剛好用滿）。<sup class="ref">O-變體·U4</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:15.5px">單款建品效率也高；B2B 價可在型錄「整本打折」再逐項覆蓋、不用逐商品手填。<b>但介面進到型錄/Markets/B2B 常只有英文</b>，學習曲線在前。<sup class="ref">P型錄·PR3</sup></p></div>
   </div>
   <p class="scnwin"><b>這一場：接近</b>。少量手動兩家都順；Shopify 的型錄打折在「同時設經銷價」時省一點工，EasyStore 勝在中文直觀好上手。</p>
 </div>
@@ -391,8 +391,8 @@
   <h3>檔期促銷：父親節（88 節）做一波 DM 導流</h3>
   <p class="anlg">設優惠、發 DM、把猶豫的撿回來。</p>
   <div class="grid2">
-    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px">限時優惠/滿額贈/折扣碼/加價購都有，基本檔期夠打。<b>但群發只有「打字＋套範本」，沒有拉圖排版的視覺化 EDM</b>，要漂亮 DM 得另裝 Mailchimp。<sup class="ref">O-群發</sup></p></div>
-    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px">原生折扣＋Shopify Email（<b>拖拉式美編 DM，比 EasyStore 強</b>）＋全球最大 App 生態。<b>但「台味」促銷是弱項</b>：LINE 深整合、直播＋1、超商檔期玩法都要疊英文 App。</p></div>
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:15.5px">限時優惠/滿額贈/折扣碼/加價購都有，基本檔期夠打。<b>但群發只有「打字＋套範本」，沒有拉圖排版的視覺化 EDM</b>，要漂亮 DM 得另裝 Mailchimp。<sup class="ref">O-群發</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:15.5px">原生折扣＋Shopify Email（<b>拖拉式美編 DM，比 EasyStore 強</b>）＋全球最大 App 生態。<b>但「台味」促銷是弱項</b>：LINE 深整合、直播＋1、超商檔期玩法都要疊英文 App。</p></div>
   </div>
   <p class="scnwin"><b>這一場：Shopify 略順</b>（DM 美編＋App 生態較強）；但兩家的「台灣 LINE/直播打法」都不如 SHOPLINE。對 B2B 為重的 VETO，這局權重不高——先想清楚行銷炮火用得到幾成。</p>
 </div>
@@ -402,8 +402,8 @@
   <h3>蝦皮跟官網一起賣：庫存同步別賣超</h3>
   <p class="anlg">同一批貨官網賣、蝦皮也賣，最怕庫存對不上、同一件賣兩次。</p>
   <div class="grid2">
-    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px"><b>官方雙向串接</b>：蝦皮訂單自動匯入後台、自動扣庫存。坑是同步有延遲、「時常出錯」，規矩＝所有編輯回 EasyStore 改、蝦皮端別動，每天抽查熱賣品。<sup class="ref">O-多通路·U7</sup></p></div>
-    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px"><b>查無官方蝦皮通路</b>（舊 Shopee App 已下架），全押小型第三方 App（評價少、品質參差、1.9 星的也在架），出事面對海外小開發商。<sup class="ref">P蝦皮</sup></p></div>
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:15.5px"><b>官方雙向串接</b>：蝦皮訂單自動匯入後台、自動扣庫存。坑是同步有延遲、「時常出錯」，規矩＝所有編輯回 EasyStore 改、蝦皮端別動，每天抽查熱賣品。<sup class="ref">O-多通路·U7</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:15.5px"><b>查無官方蝦皮通路</b>（舊 Shopee App 已下架），全押小型第三方 App（評價少、品質參差、1.9 星的也在架），出事面對海外小開發商。<sup class="ref">P蝦皮</sup></p></div>
   </div>
   <p class="scnwin"><b>這一場：EasyStore 明顯順</b>。官方雙向串接（雖有同步延遲）勝過 Shopify「無官方、全靠第三方」。<b>若蝦皮是 VETO 的重要通路，這項要加重計分</b>。</p>
 </div>
@@ -413,8 +413,8 @@
   <h3>月底對帳：B2C 的金流帳＋B2B 的應收帳</h3>
   <p class="anlg">月底把錢對清楚：散客刷卡入帳多少、經銷商欠多少。</p>
   <div class="grid2">
-    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:13.5px">對帳橫跨三方：EasyStore 出銷售報表、散客的錢在<b>金流商後台</b>、經銷應收在 <b>CMT</b>。坑：訂單「不能依日期篩選匯出」（用戶抱怨）、後台數據陽春。<sup class="ref">U7</sup></p></div>
-    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:13.5px"><b>B2B 半邊三家最輕鬆</b>：應收就在平台裡（篩未付款/Overdue）。<b>但 B2C 半邊多一層</b>：綠界後台＋Shopify 交易費帳單＋發票 App，還多核一筆「Shopify 抽走多少」。<sup class="ref">P月結·P費</sup></p></div>
+    <div><div class="vshead es">EasyStore</div><p style="margin:0;font-size:15.5px">對帳橫跨三方：EasyStore 出銷售報表、散客的錢在<b>金流商後台</b>、經銷應收在 <b>CMT</b>。坑：訂單「不能依日期篩選匯出」（用戶抱怨）、後台數據陽春。<sup class="ref">U7</sup></p></div>
+    <div><div class="vshead sp">Shopify</div><p style="margin:0;font-size:15.5px"><b>B2B 半邊三家最輕鬆</b>：應收就在平台裡（篩未付款/Overdue）。<b>但 B2C 半邊多一層</b>：綠界後台＋Shopify 交易費帳單＋發票 App，還多核一筆「Shopify 抽走多少」。<sup class="ref">P月結·P費</sup></p></div>
   </div>
   <p class="scnwin"><b>這一場：分兩半</b>。<b>B2B 應收對帳 Shopify 順</b>（在平台內）；<b>B2C 金流對帳兩家都要三邊兜</b>，Shopify 還多核一筆抽成。整體「都不是會計工具」，Shopify 在最痛的 B2B 那半邊贏一點。</p>
 </div>
@@ -424,8 +424,8 @@
   <h3>讓賈維斯代辦日常：兩家 API 我實際能替老闆做到哪</h3>
   <p class="anlg">老闆想讓 AI 顧後台——自動抓訂單、缺貨提醒、批量改價、撈日報。這靠平台開不開「後門鑰匙」（API）。</p>
   <div class="grid2">
-    <div><div class="vshead es">EasyStore（免費，夠日常）</div><p style="margin:0;font-size:13.5px">免費 Open API，<b>賈維斯能做：</b>每日彙整新訂單、低庫存提醒、批量上架/改價、撈銷售數字做日報。<b>做不到/要繞：</b>無 B2B 物件端點（不能純 API 開經銷帳號/改分級價那麼直接）；CMT 沒開放 API，B2B 對帳自動化要靠「AI 操作後台畫面」補；限額黑箱要試跑。<sup class="ref">O-API</sup></p></div>
-    <div><div class="vshead sp">Shopify（最完整，天花板最高）</div><p style="margin:0;font-size:13.5px">Admin GraphQL 全端點，<b>賈維斯能做：</b>上面全部＋<b>自動開經銷商公司帳號、掛型錄、依規則動態改分級價</b>（B2B 物件原生可操作）。<b>要實測：</b>payment terms（月結條款）能否完整經 API 操作官方未明講；限額依方案分級、大批量要排隊。<sup class="ref">P-API</sup></p></div>
+    <div><div class="vshead es">EasyStore（免費，夠日常）</div><p style="margin:0;font-size:15.5px">免費 Open API，<b>賈維斯能做：</b>每日彙整新訂單、低庫存提醒、批量上架/改價、撈銷售數字做日報。<b>做不到/要繞：</b>無 B2B 物件端點（不能純 API 開經銷帳號/改分級價那麼直接）；CMT 沒開放 API，B2B 對帳自動化要靠「AI 操作後台畫面」補；限額黑箱要試跑。<sup class="ref">O-API</sup></p></div>
+    <div><div class="vshead sp">Shopify（最完整，天花板最高）</div><p style="margin:0;font-size:15.5px">Admin GraphQL 全端點，<b>賈維斯能做：</b>上面全部＋<b>自動開經銷商公司帳號、掛型錄、依規則動態改分級價</b>（B2B 物件原生可操作）。<b>要實測：</b>payment terms（月結條款）能否完整經 API 操作官方未明講；限額依方案分級、大批量要排隊。<sup class="ref">P-API</sup></p></div>
   </div>
   <p class="scnwin"><b>這一場：Shopify 明顯順</b>。<b>要 AI 顧「日常」，兩家都行、EasyStore 還免費；要 AI 當「經銷業務助理」（自動開帳號、動態改價），只有 Shopify 夠深。</b>VETO 現階段的 AI 需求多落在日常那格——這也是為什麼 EasyStore 的「淺但免費」對 VETO 夠用。</p>
 </div>
@@ -436,13 +436,13 @@
   <p class="anlg">VETO 有 <b>200 個品項</b>要上架，且工具包多有尺寸/款式變體。v2 曾把「首批上架」列為開站的<b>關鍵路徑（估 2–4 週）</b>——用 200 品項具體化，兩家差在哪、賈維斯能幫多少。</p>
   <div class="grid2">
     <div><div class="vshead es">EasyStore</div>
-      <ul style="margin:0;font-size:13px;padding-left:1.15em">
+      <ul style="margin:0;font-size:15px;padding-left:1.15em">
         <li><b>CSV/Excel 匯入</b>：官方支援<b>變體隨匯入檔一次帶入</b>——同一 Handle 多列＋Option 1/2/3（尺寸/款式），不用手動逐一設；圖片用外部 URL（Image1/2/3，<b>每商品最多 3 張</b>）。<sup class="ref">ES-CSV</sup>（註：有舊用戶反映實務變體要手動，以官方文件為準、簽約前實測<sup class="ref">U7</sup>）</li>
         <li><b>API 批量建品</b>：Open API 免費，<b>但建含變體/批次端點的官方參考頁目前查無（500/404、完整參考只在 Postman）、呼叫上限官方也無具體數字（只有回應表頭）</b>——批量規格不透明，需用開發者帳號實測。<sup class="ref">ES-APIlim</sup></li>
       </ul>
     </div>
     <div><div class="vshead sp">Shopify</div>
-      <ul style="margin:0;font-size:13px;padding-left:1.15em">
+      <ul style="margin:0;font-size:15px;padding-left:1.15em">
         <li><b>CSV 匯入</b>：官方 CSV 原生<b>變體一列一個</b>（Option 欄）、圖片填 URL（Image Src／Variant Image）<b>匯入時自動下載重新託管</b>，200 品含變體可一次上傳。<sup class="ref">P-CSV</sup></li>
         <li><b>API 批量建品</b>：<b>productSet</b> 單一請求建「商品＋全部變體＋圖片」（上限 2048 變體/品）、<b>bulkOperationRunMutation</b> 走 JSONL 批次且<b>官方明載不受標準速率限制</b>；限額有官方數字（REST 2–20 req/s 依方案）。賈維斯最好操作、可查證。<sup class="ref">P-bulk</sup></li>
       </ul>
@@ -523,7 +523,7 @@
 <div class="grid2">
   <div class="card">
     <h3 style="margin-top:0"><span class="cy">EasyStore 的風險</span>（小眾 · 客服慢 · 搬家）</h3>
-    <ul style="margin-bottom:0;font-size:14px">
+    <ul style="margin-bottom:0;font-size:16px">
       <li><b>台灣小眾、生態薄</b>：被歸為「入門級/市場新進者」，中文教學少（PTT 熱度集中 2020–22）、同店網友少、部分文件英文——出事比較孤單。<sup class="ref">U2</sup></li>
       <li><b>客服只能寫信、沒有電話</b>，還照馬來西亞上班時間、偶有罐頭回覆；Capterra 客服項 3.6/5。<sup class="ref">U1·L-capterra</sup></li>
       <li><b>搬家帶得走但不完整</b>：訂單/會員/商品可匯出，<b>但商品分類無法單獨匯出、設計完全帶不走</b>（Liquid 平台通病）；且<b>幾乎每年調方案</b>（漲價/砍功能）。<sup class="ref">L-migrate·U12</sup></li>
@@ -533,7 +533,7 @@
   </div>
   <div class="card">
     <h3 style="margin-top:0"><span class="cn">Shopify 的風險</span>（在地弱 · 組裝複雜 · 匯率）</h3>
-    <ul style="margin-bottom:0;font-size:14px">
+    <ul style="margin-bottom:0;font-size:16px">
       <li><b>台灣在地化三家最弱</b>：無自營金流、綠界官方 App 掛牌 4 年 0 評價、藍新無 App、蝦皮無官方通路、超取 COD 體驗不如本土——CodeLove 專文列為「台灣很少人用」主因。<sup class="ref">P-tw金流·PR7</sup></li>
       <li><b>組裝複雜、維護分散</b>：金流/超取/發票/蝦皮是 3–4 個 App，各自收費更新；建置期三家最長、英文文件濃、導入「跌跌撞撞」。<sup class="ref">PR3</sup></li>
       <li><b>「便宜月費」是錯覺</b>：非官方金流<b>多抽 1%</b>吃全部 B2C，加 App 月費，總成本要疊三層才算得準。<sup class="ref">P費</sup></li>
@@ -549,7 +549,7 @@
 <div class="card verdict">
   <div class="lead">★ 選邊：EasyStore 成長版＋CMT（維持首選，三年約 47.7 萬）</div>
   <p class="big" style="margin-top:2px;margin-bottom:8px">十回合 Shopify 帳面小勝，但決策翻向 EasyStore——不是情感，是把每個回合乘上「對 VETO 的權重」與「缺口補起來多難」之後的結果。三個理由：</p>
-  <ol style="margin:0 0 4px;font-size:14.5px">
+  <ol style="margin:0 0 4px;font-size:16.5px">
     <li><b>EasyStore 贏的三回合天天有感、對有限人力最友善。</b>台灣在地化（收款/超取/發票/中文客服開箱即用）、建置速度（少拼裝、最快上線）、維護負擔（要顧的零件最少、無鎖定）——這三項是<b>每天、每張發票、每次改版都在省的力</b>；Shopify 疊 3–4 個 App 省下的方案費，會用人力補回去。</li>
     <li><b>EasyStore「輸」的回合，是用平價外掛就補得起的已知缺口。</b>月結雖輸得壓倒性，但一套 CMT（33,600/年、前後台分工清楚、換前台不用換帳房）就補平；API 雖淺，但免費版已夠 VETO 的日常 AI 代管（抓單/改庫存/上架/日報）。Shopify 的原生月結＋B2B 物件 API 是「<b>更高的天花板</b>」，不是 VETO 的「<b>日常必需</b>」。</li>
     <li><b>0 抽成＝生意越大越省。</b>Shopify 每筆 B2C 刷卡多抽 1% 隨營收漲；EasyStore 0 抽成、營收翻倍平台費不動。帳面 Shopify 低（34–44 萬），但配完整進銷存後只差約 4 萬（三年），放大到 600 萬 EasyStore 反手追平——VETO 是「要把生意做大」的規劃，長期站 EasyStore 這邊。</li>
@@ -559,8 +559,8 @@
 
 <div class="card verdict blue">
   <div class="lead">↺ 決策翻轉條件：什麼情況成立時，改選 Shopify 反而對</div>
-  <p style="margin:.2em 0 6px;font-size:14px">下面<b>任一條成立、且能吞第 4 條的代價</b>，Shopify 就反超：</p>
-  <ol style="margin:0;font-size:14px">
+  <p style="margin:.2em 0 6px;font-size:16px">下面<b>任一條成立、且能吞第 4 條的代價</b>，Shopify 就反超：</p>
+  <ol style="margin:0;font-size:16px">
     <li><b>月結要「平台原生」、不想再接一套進銷存</b>：老闆把「應收記在購物網站裡、少一套 CMT 要對帳」看得比在地便利更重 → Shopify net terms 是唯一原生。</li>
     <li><b>未來有跨境／國際站計畫</b>：要把台灣代理延伸成國際 DTC 品牌 → Shopify 全球生態、多語多幣、Plus 升級路徑最好。</li>
     <li><b>要「AI 全自動管經銷」</b>：不只顧日常，還要賈維斯自動開經銷帳號、依規則動態改分級價 → 只有 Shopify 的 B2B 物件 API 做得到全套。</li>
@@ -573,7 +573,7 @@
 <div class="grid2">
   <div class="card">
     <h3 style="margin-top:0">A. 兩家都開試用，實測這幾件事</h3>
-    <ul style="margin-bottom:0;font-size:14px">
+    <ul style="margin-bottom:0;font-size:16px">
       <li><b>EasyStore</b>：開試用建「批發官網＋兩組價格表」測分級價/隱藏品項；<b>拿 10 個含變體品項測 .xlsx 匯入</b>，確認變體到底能不能帶、手動要多久。</li>
       <li><b>Shopify</b>：開試用建「公司檔案＋金級/銀級型錄＋Net 30」測原生月結；<b>拿同 10 品測 CSV 變體批量＋圖片 URL</b>。</li>
       <li><b>賈維斯（我）</b>：老闆給一份 <b>10 品的商品資料表＋圖片資料夾</b>，我兩家各用 API 批量建一次，<b>實測 EasyStore 限額（官方黑箱）與 Shopify 限額</b>，回報 200 品各要跑多久——這決定 200 品上架走哪條路。</li>
@@ -581,7 +581,7 @@
   </div>
   <div class="card">
     <h3 style="margin-top:0">B. 向業務要書面答覆（各家版本）</h3>
-    <ul style="margin-bottom:0;font-size:14px">
+    <ul style="margin-bottom:0;font-size:16px">
       <li><b>EasyStore 業務</b>：①成長版<b>是否即含 Open API</b>（綁哪些方案）②批發官網/價格表全含無隱藏加費 ③規模上限（SKU/流量/會員）④訂單能否<b>依日期篩選匯出</b>（現況）。</li>
       <li><b>Shopify 業務／實測</b>：①<b>payment terms 能否完整經 API 操作</b>（AI 管月結前提）②催款 Flow 自動化<b>是否限 Plus</b>（官方兩頁矛盾）③台灣 App 月費總額（超取＋發票＋蝦皮）④綠界串接實際工時。</li>
       <li><b>CMT（兩案共通）</b>：帳號數/月單量落哪一級、超量加價、對帳單格式、未付款批發單拋轉的狀態對應。</li>
